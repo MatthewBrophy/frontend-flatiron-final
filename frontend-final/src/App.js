@@ -20,7 +20,7 @@ class App extends Component {
         userParties: {
           hosting: [],
           attending: [],
-          nearest: []
+          upcomingParties: []
         }
       },
       parties: {
@@ -93,10 +93,30 @@ class App extends Component {
       );
   };
 
+  fetchUserAttendances = id => {
+    fetch(`http://localhost:3000/api/v1/users/${id}/guest-attendances`)
+      .then(response => response.json())
+      .then(attendings =>
+        this.setState({
+          currentUser: {
+            ...this.state.currentUser,
+
+            userParties: {
+              ...this.state.currentUser.userParties,
+              attending: attendings
+            }
+          }
+        })
+      );
+  };
+
+  setUpcomingParties = () => {};
+
   componentDidMount() {
     this.seedAllRecipes();
     this.fetchUserRecipes(1);
     this.fetchUserHostings(1);
+    this.fetchUserAttendances(1);
     this.seedAllParties();
   }
 
@@ -127,7 +147,8 @@ class App extends Component {
                       currentUser={this.state.currentUser}
                       parties={this.state.parties}
                       recipes={this.state.recipes}
-                      state={this.state}
+                      featuredParties={this.state.parties.featuredParties}
+                      sponsoredParties={this.state.parties.sponsoredParties}
                     />
                   )}
                 />

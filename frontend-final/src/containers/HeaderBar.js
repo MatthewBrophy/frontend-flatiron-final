@@ -8,7 +8,9 @@ class HeaderBar extends Component {
     return (
       <Container id="top-bar" className="center aligned">
         <MenuButton />
-        <p id="main-title">Friends Feast!</p>
+        <p className="center aligned" id="main-title">
+          Friends Feast!
+        </p>
       </Container>
     );
   }
