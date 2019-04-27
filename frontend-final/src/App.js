@@ -9,13 +9,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      loggedIn: true,
+      loggedIn: false,
       currentUser: {
-        userId: 1,
-        userName: "Nite Owl",
-        userNeighborhood: "Ambrette Town",
-        userFavoriteFood: "Fish and Chips",
-        userProfilePic: "https://randomuser.me/api/portraits/med/men/1.jpg",
+        userId: 0,
+        userName: "",
+        userNeighborhood: "",
+        userProfilePic: "",
         userRecipes: [],
         userParties: {
           hosting: [],
@@ -121,7 +120,17 @@ class App extends Component {
   }
 
   setCurrentUser = user => {
-    console.log(user);
+    console.log("I'm setting a user!", user);
+
+    this.setState({
+      loggedIn: true,
+      currentUser: {
+        ...this.state.currentUser,
+        userId: user.userID,
+        userName: user.name,
+        userProfilePic: user.picture
+      }
+    });
   };
 
   render() {

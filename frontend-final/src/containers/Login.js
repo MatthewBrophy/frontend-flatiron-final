@@ -1,43 +1,69 @@
-import React from "react";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Message,
-  Segment
-} from "semantic-ui-react";
+import React, { Component } from "react";
+import FacebookLogin from "react-facebook-login";
 
-export default () => (
-  <Grid centered columns={2}>
-    <Grid.Column>
-      <Header as="h2" textAlign="center">
-        Login
-      </Header>
-      <Segment>
-        <Form size="large">
-          <Form.Input
-            fluid
-            icon="user"
-            iconPosition="left"
-            placeholder="Email address"
-          />
-          <Form.Input
-            fluid
-            icon="lock"
-            iconPosition="left"
-            placeholder="Password"
-            type="password"
-          />
+export default class Login extends Component {
+  constructor(props) {
+    super(props);
 
-          <Button color="blue" fluid size="large">
-            Login
-          </Button>
-        </Form>
-      </Segment>
-      <Message>
-        Not registered yet? <a href="#">Sign Up</a>
-      </Message>
-    </Grid.Column>
-  </Grid>
-);
+    this.state = {
+      isLoggedIn: false,
+      name: "",
+      email: "",
+      picture: "",
+      auth_key: ""
+    };
+  }
+  responseFacebook = response => {
+    console.log("response", response);
+    if (response.picture.data.url)
+      fetch("http://localhost:3000/api/v1/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: response.name,
+          email: response.email,
+          picture: response.picture.data.url,
+          auth_key: response.userID
+        })
+      });
+    if (response) {
+      alert("You already logged in to Facebook. Enjoy the app!");
+      let info = {
+        name: response.name,
+        email: response.email,
+        picture: response.picture.data.url,
+        auth_key: response.userID
+      };
+      this.props.setCurrentUser(info);
+    } else {
+      this.setState({
+        isLoggedIn: true,
+        name: response.name,
+        email: response.email,
+        picture: response.picture.data.url,
+        auth_key: response.userID
+      });
+    }
+  };
+
+  componentClicked = () => {};
+
+  render() {
+    let fbContent;
+    if (this.state.isLoggedIn) {
+      this.props.setCurrentUser(this.state);
+    } else {
+      fbContent = (
+        <FacebookLogin
+          appId="677417279343452"
+          autoLoad={true}
+          fields="name,email,picture"
+          onClick={this.componentClicked}
+          callback={this.responseFacebook}
+        />
+      );
+    }
+
+    return <div>{fbContent}</div>;
+  }
+}
