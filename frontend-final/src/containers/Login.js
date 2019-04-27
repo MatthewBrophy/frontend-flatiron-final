@@ -14,11 +14,12 @@ export default class Login extends Component {
     };
   }
   responseFacebook = response => {
-    console.log("response", response);
     if (response.picture.data.url)
       fetch("http://localhost:3000/api/v1/users", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({
           name: response.name,
           email: response.email,
@@ -27,8 +28,8 @@ export default class Login extends Component {
         })
       });
     if (response) {
-      alert("You already logged in to Facebook. Enjoy the app!");
       let info = {
+        userID: response.userID,
         name: response.name,
         email: response.email,
         picture: response.picture.data.url,

@@ -13,6 +13,7 @@ class ProfileDetails extends Component {
           />
         </div>
         <div className="item" id="profile-details">
+          {console.log(this.props.user)}
           <p>{this.props.user.userName}</p>
           <p>Hosted Parties: {this.props.user.userParties.hosting.length}</p>
           <p>

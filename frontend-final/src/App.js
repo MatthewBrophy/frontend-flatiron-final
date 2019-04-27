@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       currentUser: {
-        userId: 0,
+        userId: "",
         userName: "",
         userNeighborhood: "",
         userProfilePic: "",
@@ -109,28 +109,24 @@ class App extends Component {
       );
   };
 
-  setUpcomingParties = () => {};
-
-  componentDidMount() {
-    this.seedAllRecipes();
-    this.fetchUserRecipes(1);
-    this.fetchUserHostings(1);
-    this.fetchUserAttendances(1);
-    this.seedAllParties();
-  }
-
   setCurrentUser = user => {
-    console.log("I'm setting a user!", user);
-
-    this.setState({
-      loggedIn: true,
-      currentUser: {
-        ...this.state.currentUser,
-        userId: user.userID,
-        userName: user.name,
-        userProfilePic: user.picture
-      }
-    });
+    this.setState(
+      {
+        loggedIn: true,
+        currentUser: {
+          ...this.state.currentUser,
+          userId: user.userID,
+          userName: user.name,
+          userProfilePic: user.picture
+        }
+      },
+      this.fetchUserRecipes(26),
+      this.fetchUserHostings(26),
+      this.fetchUserAttendances(26),
+      this.seedAllRecipes(),
+      this.seedAllParties(),
+      console.log("state", this.state)
+    );
   };
 
   render() {
@@ -156,8 +152,6 @@ class App extends Component {
                       currentUser={this.state.currentUser}
                       parties={this.state.parties}
                       recipes={this.state.recipes}
-                      featuredParties={this.state.parties.featuredParties}
-                      sponsoredParties={this.state.parties.sponsoredParties}
                     />
                   )}
                 />

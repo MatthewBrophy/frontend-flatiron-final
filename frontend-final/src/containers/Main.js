@@ -32,7 +32,7 @@ class Main extends Component {
             <div className="column center aligned">
               <ProfileDetails user={this.props.currentUser} />
 
-              <UpcomingParties />
+              <UpcomingParties user={this.props.currentUser} />
             </div>
             <div className="column center aligned">
               <FeaturedEvents />
