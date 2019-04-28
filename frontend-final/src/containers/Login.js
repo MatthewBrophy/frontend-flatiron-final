@@ -1,5 +1,14 @@
 import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
+import {
+  Button,
+  Form,
+  Grid,
+  Header,
+  Image,
+  Message,
+  Segment
+} from "semantic-ui-react";
 
 export default class Login extends Component {
   constructor(props) {
@@ -14,7 +23,7 @@ export default class Login extends Component {
     };
   }
   responseFacebook = response => {
-    if (response.picture.data.url)
+    if (response.status === undefined) {
       fetch("http://localhost:3000/api/v1/users", {
         method: "POST",
         headers: {
@@ -27,16 +36,6 @@ export default class Login extends Component {
           auth_key: response.userID
         })
       });
-    if (response) {
-      let info = {
-        userID: response.userID,
-        name: response.name,
-        email: response.email,
-        picture: response.picture.data.url,
-        auth_key: response.userID
-      };
-      this.props.setCurrentUser(info);
-    } else {
       this.setState({
         isLoggedIn: true,
         name: response.name,
@@ -65,6 +64,30 @@ export default class Login extends Component {
       );
     }
 
-    return <div>{fbContent}</div>;
+    return (
+      <div id="login-form">
+        <style>
+          {`
+      body > div,
+      body > div > div,
+      body > div > div > div.login-form {
+        height: 100%;
+      }
+    `}
+        </style>
+        <Grid
+          textAlign="center"
+          style={{ height: "100%" }}
+          verticalAlign="middle"
+        >
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <Header as="h2" color="teal" textAlign="center">
+              <Image src="/logo.png" /> Log-in with FaceBook
+            </Header>
+            {fbContent}
+          </Grid.Column>
+        </Grid>
+      </div>
+    );
   }
 }

@@ -11,12 +11,11 @@ class UpcomingHostings extends Component {
         className="row"
       >
         I'm some upcoming Hostings!
-        {this.props.hostings.slice(0, 20).map(party => (
+        {this.props.hostings.slice(0, 10).map(party => (
           <Segment key={party.id}>
             <PartyCard details={party} key={party.id} />
           </Segment>
         ))}
-        {console.log("Hostings", this.props)}
       </Segment.Group>
     );
   }

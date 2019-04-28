@@ -10,12 +10,12 @@ class App extends Component {
     super();
     this.state = {
       loggedIn: false,
+      DBID: "",
       currentUser: {
         userId: "",
         userName: "",
         userNeighborhood: "",
         userProfilePic: "",
-        userRecipes: [],
         userParties: {
           hosting: [],
           attending: [],
@@ -28,26 +28,9 @@ class App extends Component {
         allParties: [],
         soonestParties: [],
         newestParties: []
-      },
-      recipes: {
-        allRecipesInDB: [],
-        newestRecipes: []
       }
     };
   }
-
-  seedAllRecipes = () => {
-    fetch("http://localhost:3000/api/v1/recipes")
-      .then(response => response.json())
-      .then(allRecipes =>
-        this.setState({
-          recipes: {
-            ...this.state.recipes,
-            allRecipesInDB: allRecipes
-          }
-        })
-      );
-  };
 
   seedAllParties = () => {
     fetch("http://localhost:3000/api/v1/cooking_parties")
@@ -62,33 +45,24 @@ class App extends Component {
       );
   };
 
-  fetchUserRecipes = id => {
-    fetch(`http://localhost:3000/api/v1/users/${id}/recipes`)
-      .then(response => response.json())
-      .then(usersRecipes =>
-        this.setState({
-          currentUser: {
-            ...this.state.currentUser,
-            userRecipes: usersRecipes
-          }
-        })
-      );
-  };
-
   fetchUserHostings = id => {
+    console.log("id at hostings fetch", this.state);
     fetch(`http://localhost:3000/api/v1/users/${id}/hostings`)
       .then(response => response.json())
       .then(hostings =>
-        this.setState({
-          currentUser: {
-            ...this.state.currentUser,
+        this.setState(
+          {
+            currentUser: {
+              ...this.state.currentUser,
 
-            userParties: {
-              ...this.state.currentUser.userParties,
-              hosting: hostings
+              userParties: {
+                ...this.state.currentUser.userParties,
+                hosting: hostings
+              }
             }
-          }
-        })
+          },
+          async () => this.fetchUserAttendances(this.state.DBID)
+        )
       );
   };
 
@@ -96,20 +70,24 @@ class App extends Component {
     fetch(`http://localhost:3000/api/v1/users/${id}/guest-attendances`)
       .then(response => response.json())
       .then(attendings =>
-        this.setState({
-          currentUser: {
-            ...this.state.currentUser,
+        this.setState(
+          {
+            currentUser: {
+              ...this.state.currentUser,
 
-            userParties: {
-              ...this.state.currentUser.userParties,
-              attending: attendings
+              userParties: {
+                ...this.state.currentUser.userParties,
+                attending: attendings
+              }
             }
-          }
-        })
+          },
+          async () => this.seedAllParties()
+        )
       );
   };
 
   setCurrentUser = user => {
+    console.log("setting current user", user);
     this.setState(
       {
         loggedIn: true,
@@ -120,13 +98,19 @@ class App extends Component {
           userProfilePic: user.picture
         }
       },
-      this.fetchUserRecipes(26),
-      this.fetchUserHostings(26),
-      this.fetchUserAttendances(26),
-      this.seedAllRecipes(),
-      this.seedAllParties(),
-      console.log("state", this.state)
+      async () => this.getDBUserId(user)
     );
+  };
+
+  getDBUserId = user => {
+    console.log("setting DB user ID");
+    fetch(`http://localhost:3000/api/v1/users/skittles/${user.auth_key}`)
+      .then(response => response.json())
+      .then(info =>
+        this.setState({ DBID: info[0].id }, async () =>
+          this.fetchUserHostings(this.state.DBID)
+        )
+      );
   };
 
   render() {
@@ -151,7 +135,6 @@ class App extends Component {
                     <Main
                       currentUser={this.state.currentUser}
                       parties={this.state.parties}
-                      recipes={this.state.recipes}
                     />
                   )}
                 />

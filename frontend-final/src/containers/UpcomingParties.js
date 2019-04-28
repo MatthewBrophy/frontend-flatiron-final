@@ -7,6 +7,14 @@ class UpcomingParties extends Component {
     super(props);
   }
 
+  getUpcomingEvents = () => {
+    console.log("props at events", this.props);
+  };
+
+  componentDidMount() {
+    this.getUpcomingEvents();
+  }
+
   render() {
     return (
       <div className="row center aligned">

@@ -7,8 +7,9 @@ class PartyCard extends Component {
       partyImage: ""
     };
   }
+
   render() {
-    return <div>{console.log(this.props)}PC</div>;
+    return <div id="party-card">PC</div>;
   }
 }
 

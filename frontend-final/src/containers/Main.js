@@ -5,8 +5,6 @@ import UpcomingParties from "./UpcomingParties";
 import FeaturedEvents from "./FeaturedEvents";
 import PartyNavBar from "../components/PartyNavBar";
 import PartyDisplayPane from "./PartyDisplayPane";
-import RecipeNavBar from "../components/RecipeNavBar";
-import RecipeDisplayPane from "./RecipeDisplayPane";
 
 import {
   Container,
@@ -43,11 +41,6 @@ class Main extends Component {
         <div className="ui grid">
           <PartyNavBar />
           <PartyDisplayPane />
-        </div>
-
-        <div className="ui grid">
-          <RecipeNavBar />
-          <RecipeDisplayPane />
         </div>
       </Container>
     );
