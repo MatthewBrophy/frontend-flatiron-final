@@ -2,11 +2,7 @@ import React, { Component } from "react";
 
 class PartyDisplayPane extends Component {
   render() {
-    return (
-      <div className="row">
-        {console.log("state at party display", this.props)}Party Display Pane
-      </div>
-    );
+    return <div className="row">Party Display Pane</div>;
   }
 }
 

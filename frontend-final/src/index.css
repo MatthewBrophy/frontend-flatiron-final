@@ -56,10 +56,11 @@ code {
   margin-left: 80px;
 }
 
-#party-card {
-  margin: 5px;
-}
-
 #login-form {
   margin-top: 50px;
+}
+
+#party-card {
+  height: 200px;
+  width: 300px;
 }

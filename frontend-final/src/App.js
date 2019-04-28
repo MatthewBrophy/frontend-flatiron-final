@@ -46,7 +46,6 @@ class App extends Component {
   };
 
   fetchUserHostings = id => {
-    console.log("id at hostings fetch", this.state);
     fetch(`http://localhost:3000/api/v1/users/${id}/hostings`)
       .then(response => response.json())
       .then(hostings =>
@@ -87,7 +86,6 @@ class App extends Component {
   };
 
   setCurrentUser = user => {
-    console.log("setting current user", user);
     this.setState(
       {
         loggedIn: true,
@@ -103,7 +101,6 @@ class App extends Component {
   };
 
   getDBUserId = user => {
-    console.log("setting DB user ID");
     fetch(`http://localhost:3000/api/v1/users/skittles/${user.auth_key}`)
       .then(response => response.json())
       .then(info =>
