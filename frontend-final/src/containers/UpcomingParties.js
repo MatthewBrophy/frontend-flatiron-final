@@ -10,7 +10,7 @@ class UpcomingParties extends Component {
 
   render() {
     return (
-      <div className="row center aligned">
+      <div className="row center aligned" id="upcoming-parties-pane">
         <Segment.Group>
           <p>Upcoming Parties</p>
           <UpcomingHostings hostings={this.props.user.userParties.hosting} />

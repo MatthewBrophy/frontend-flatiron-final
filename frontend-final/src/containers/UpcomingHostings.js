@@ -6,7 +6,7 @@ class UpcomingHostings extends Component {
   render() {
     return (
       <Segment>
-        <div className="ui cards">I'm some upcoming hostings.</div>
+        <div className="ui cards">I am some upcoming hostings.</div>
       </Segment>
     );
   }

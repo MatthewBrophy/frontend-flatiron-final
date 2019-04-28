@@ -60,7 +60,16 @@ code {
   margin-top: 50px;
 }
 
+#upcoming-parties-pane {
+  margin-top: 50px;
+}
+
 #party-card {
-  height: 200px;
-  width: 300px;
+  width: 250px;
+}
+
+#party-card-image {
+  margin-bottom: 10px;
+  border: solid 2px white;
+  border-radius: 10px;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card } from "semantic-ui-react";
+import { Button, Card, Image } from "semantic-ui-react";
 
 class PartyCard extends Component {
   constructor(props) {
@@ -8,10 +8,16 @@ class PartyCard extends Component {
       partyImage: "",
       partyDescription: "",
       theme: "",
-      host: this.props.details.host
+      host: this.props.details.host,
+      time: this.props.details.time
     };
     this.retrievePartyDetails();
+    this.convertTime();
   }
+
+  convertTime = () => {
+    let currentTimeString = this.props.details.time;
+  };
 
   retrievePartyDetails = () => {
     fetch(
@@ -30,7 +36,20 @@ class PartyCard extends Component {
   };
 
   render() {
-    return <div id="party-card">PC</div>;
+    return (
+      <Card id="party-card">
+        <Card.Content>
+          <Image
+            size="small"
+            src={this.state.partyImage}
+            id="party-card-image"
+          />
+          <Card.Header>{this.state.theme}</Card.Header>
+          <Card.Description>{this.state.partyDescription}</Card.Description>
+        </Card.Content>
+        <Card.Content>Date: {this.state.time}</Card.Content>
+      </Card>
+    );
   }
 }
 

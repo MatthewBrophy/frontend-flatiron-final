@@ -3,16 +3,18 @@ import { Segment, Card, Item } from "semantic-ui-react";
 import PartyCard from "../components/PartyCard";
 
 class UpcomingAttendances extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <Segment>
-        <div className="ui cards">
-          Im upcoming attendances.
-          {console.log(
-            "props in attendances",
-            this.props.attending.slice(0, 10)
-          )}
-        </div>
+        <Card.Group centered>
+          {this.props.attending.slice(0, 5).map(party => (
+            <PartyCard details={party} key={party.id} />
+          ))}
+        </Card.Group>
       </Segment>
     );
   }
