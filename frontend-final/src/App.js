@@ -4,6 +4,7 @@ import { Container } from "semantic-ui-react";
 
 import Login from "./containers/Login";
 import Main from "./containers/Main";
+import UsersParties from "./containers/UsersParties";
 
 class App extends Component {
   constructor() {
@@ -12,7 +13,6 @@ class App extends Component {
       loggedIn: false,
       DBID: "",
       currentUser: {
-        userId: "",
         userName: "",
         userNeighborhood: "",
         userProfilePic: "",
@@ -91,7 +91,7 @@ class App extends Component {
         loggedIn: true,
         currentUser: {
           ...this.state.currentUser,
-          userId: user.userID,
+
           userName: user.name,
           userProfilePic: user.picture
         }
@@ -108,6 +108,11 @@ class App extends Component {
           this.fetchUserHostings(this.state.DBID)
         )
       );
+  };
+
+  logout = () => {
+    this.setState({ loggedIn: false });
+    console.log("You dun' clicked the logout Button");
   };
 
   render() {
@@ -132,10 +137,15 @@ class App extends Component {
                     <Main
                       currentUser={this.state.currentUser}
                       parties={this.state.parties}
+                      logout={this.logout}
                     />
                   )}
                 />
               )}
+              <Route
+                path="/your-parties"
+                component={() => <UsersParties state={this.state} />}
+              />
             </Switch>
           </div>
         </Router>

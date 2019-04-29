@@ -9,7 +9,7 @@ class ProfileDetails extends Component {
           <img
             id="profile-pic"
             src={this.props.user.userProfilePic}
-            alt={this.props.user.userId}
+            alt="user profile pic"
           />
         </div>
         <div className="item" id="profile-details">

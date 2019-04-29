@@ -33,16 +33,17 @@ export default class Login extends Component {
           name: response.name,
           email: response.email,
           picture: response.picture.data.url,
-          auth_key: response.userID
+          auth_key: response.userID.slice(0, 5)
         })
-      });
-      this.setState({
-        isLoggedIn: true,
-        name: response.name,
-        email: response.email,
-        picture: response.picture.data.url,
-        auth_key: response.userID
-      });
+      }).then(() =>
+        this.setState({
+          isLoggedIn: true,
+          name: response.name,
+          email: response.email,
+          picture: response.picture.data.url,
+          auth_key: response.userID.slice(0, 5)
+        })
+      );
     }
   };
 

@@ -18,6 +18,7 @@ code {
 #top-bar {
   border: solid 2px red;
   height: 100%;
+  margin-top: 50px;
 }
 
 #menu-button {
@@ -64,12 +65,35 @@ code {
   margin-top: 50px;
 }
 
-#party-card {
-  width: 250px;
-}
-
 #party-card-image {
-  margin-bottom: 10px;
+  max-width: 70px;
   border: solid 2px white;
   border-radius: 10px;
+}
+
+#upcoming-hosting-list {
+  height: 320px;
+  overflow: auto;
+}
+
+#upcoming-attendance-list {
+  height: 320px;
+  overflow: auto;
+}
+
+#user-parties-container {
+  margin-top: 50px;
+}
+
+#new-party-form {
+  margin-top: 50px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+}
+
+#form-title {
+  margin: auto;
+  font-size: 30px;
 }

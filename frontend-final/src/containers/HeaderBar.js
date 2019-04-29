@@ -7,7 +7,7 @@ class HeaderBar extends Component {
   render() {
     return (
       <Container id="top-bar" className="center aligned">
-        <MenuButton />
+        <MenuButton logout={this.props.logout} />
         <p className="center aligned" id="main-title">
           Friends Feast!
         </p>

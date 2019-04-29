@@ -23,7 +23,7 @@ class Main extends Component {
   render() {
     return (
       <Container>
-        <HeaderBar />
+        <HeaderBar logout={this.props.logout} />
 
         <div className="ui two column divided grid">
           <div className="row">

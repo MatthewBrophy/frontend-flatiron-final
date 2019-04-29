@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-import PartyCard from "../components/PartyCard";
-import { Segment } from "semantic-ui-react";
+import MiniPartyCard from "../components/MiniPartyCard";
+import { Segment, Card } from "semantic-ui-react";
 
 class UpcomingHostings extends Component {
   render() {
     return (
-      <Segment>
-        <div className="ui cards">I am some upcoming hostings.</div>
-      </Segment>
+      <Card.Group id="upcoming-hosting-list">
+        {this.props.hostings.slice(0, 5).map(party => (
+          <MiniPartyCard details={party} key={party.id} />
+        ))}
+      </Card.Group>
     );
   }
 }
