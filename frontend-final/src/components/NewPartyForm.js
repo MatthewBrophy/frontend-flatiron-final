@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 class NewPartyForm extends Component {
   state = {
-    userID: this.props.state.DBID,
+    user_id: this.props.state.DBID,
     partyName: "",
     partyTheme: "",
     partyDescription: "",
@@ -30,7 +30,7 @@ class NewPartyForm extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        userID: this.state.userID,
+        user_id: this.state.user_id,
         name: this.state.partyName,
         theme: this.state.partyTheme,
         description: this.state.partyDescription,
