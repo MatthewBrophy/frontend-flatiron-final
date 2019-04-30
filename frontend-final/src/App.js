@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import { Container } from "semantic-ui-react";
 
 import Login from "./containers/Login";
@@ -112,7 +117,26 @@ class App extends Component {
 
   logout = () => {
     this.setState({ loggedIn: false });
-    console.log("You dun' clicked the logout Button");
+  };
+
+  updateHostings = newAttendance => {
+    let currentHostings = [
+      ...this.state.currentUser.userParties.hosting,
+      newAttendance
+    ];
+    this.setState(
+      {
+        currentUser: {
+          ...this.state.currentUser,
+
+          userParties: {
+            ...this.state.currentUser.userParties,
+            hosting: currentHostings
+          }
+        }
+      },
+      async () => <Redirect to="/" />
+    );
   };
 
   render() {
@@ -144,7 +168,12 @@ class App extends Component {
               )}
               <Route
                 path="/your-parties"
-                component={() => <UsersParties state={this.state} />}
+                component={() => (
+                  <UsersParties
+                    state={this.state}
+                    updateHostings={this.updateHostings}
+                  />
+                )}
               />
             </Switch>
           </div>

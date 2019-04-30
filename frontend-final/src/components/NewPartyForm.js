@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Form } from "semantic-ui-react";
+import { Link, Redirect } from "react-router-dom";
 import DatePicker from "react-datepicker";
+
 import "react-datepicker/dist/react-datepicker.css";
 
 class NewPartyForm extends Component {
@@ -23,7 +25,6 @@ class NewPartyForm extends Component {
   setPartyLocation = info => this.setState({ partyLocation: info });
 
   submitForm = e => {
-    e.preventDefault();
     fetch("http://localhost:3000/api/v1/cooking_parties", {
       method: "POST",
       headers: {
@@ -39,7 +40,14 @@ class NewPartyForm extends Component {
         image: this.state.partyImage,
         location: this.state.partyLocation
       })
-    });
+    })
+      .then(res => res.json())
+      .then(newAttendance => this.props.updateHostings(newAttendance))
+      .then(() => this.redirectHome());
+  };
+
+  redirectHome = () => {
+    window.location.replace("https://localhost:3001/");
   };
 
   render() {
@@ -57,9 +65,15 @@ class NewPartyForm extends Component {
         </Form.Group>
         <Form.Group className="ui grid center aligned" id="date-picker">
           <DatePicker
+            id="date-picker-window"
             className="ui center aligned"
             selected={this.state.startDate}
             onChange={e => this.setPartyDate(e)}
+            showTimeSelect
+            timeFormat="h:mm aa"
+            timeIntervals={30}
+            dateFormat="MMMM d, yyyy h:mm aa "
+            timeCaption="time"
           />
         </Form.Group>
         <Form.Group widths="equal">
@@ -97,8 +111,6 @@ class NewPartyForm extends Component {
         />
 
         <Form.Button>Submit</Form.Button>
-        {console.log("props.state", this.props.state)}
-        {console.log("state", this.state)}
       </Form>
     );
   }

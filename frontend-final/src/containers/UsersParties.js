@@ -7,7 +7,10 @@ class UsersParties extends Component {
     return (
       <div className="ui container center aligned" id="user-parties-container">
         <HeaderBar logout={this.props.logout} />
-        <NewPartyForm state={this.props.state} />
+        <NewPartyForm
+          state={this.props.state}
+          updateHostings={this.props.updateHostings}
+        />
       </div>
     );
   }
