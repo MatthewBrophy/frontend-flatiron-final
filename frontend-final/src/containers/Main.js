@@ -3,8 +3,7 @@ import HeaderBar from "./HeaderBar";
 import ProfileDetails from "../components/ProfileDetails";
 import UpcomingParties from "./UpcomingParties";
 import FeaturedEvents from "./FeaturedEvents";
-import PartyNavBar from "../components/PartyNavBar";
-import PartyDisplayPane from "./PartyDisplayPane";
+import PartyCollection from "./PartyCollection";
 
 import {
   Container,
@@ -25,7 +24,7 @@ class Main extends Component {
       <Container>
         <HeaderBar logout={this.props.logout} />
 
-        <div className="ui two column divided grid">
+        <div className="ui two column grid">
           <div className="row">
             <div className="column center aligned">
               <ProfileDetails user={this.props.currentUser} />
@@ -39,8 +38,7 @@ class Main extends Component {
         </div>
 
         <div className="ui grid">
-          <PartyNavBar />
-          <PartyDisplayPane />
+          <PartyCollection parties={this.props.parties} />
         </div>
       </Container>
     );

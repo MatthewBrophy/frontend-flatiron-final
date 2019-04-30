@@ -111,6 +111,7 @@ class NewPartyForm extends Component {
         />
 
         <Form.Button>Submit</Form.Button>
+        {console.log("state at Friends", this.state)}
       </Form>
     );
   }

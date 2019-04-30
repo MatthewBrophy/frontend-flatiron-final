@@ -18,7 +18,11 @@ class MenuButton extends Component {
       <div>
         <Dropdown text="Menu" id="menu-button">
           <Dropdown.Menu>
-            <Dropdown.Item text="Your Parties" as={Link} to="/your-parties" />
+            <Dropdown.Item
+              text="Host a New Party"
+              as={Link}
+              to="/host-a-party"
+            />
             <Dropdown.Item text="Home" as={Link} to="/" />
             <Dropdown.Item text="Invite Friends" />
             <Dropdown.Item text="Edit Profile" />

@@ -167,7 +167,7 @@ class App extends Component {
                 />
               )}
               <Route
-                path="/your-parties"
+                path="/host-a-party"
                 component={() => (
                   <UsersParties
                     state={this.state}
