@@ -120,6 +120,7 @@ class App extends Component {
   };
 
   updateHostings = newAttendance => {
+    console.log("updated hostings");
     let currentHostings = [
       ...this.state.currentUser.userParties.hosting,
       newAttendance
@@ -137,6 +138,49 @@ class App extends Component {
       },
       async () => <Redirect to="/" />
     );
+  };
+
+  updateAttendances = newAttendance => {
+    let currentAttendances = [
+      ...this.state.currentUser.userParties.attending,
+      newAttendance
+    ];
+    this.setState({
+      currentUser: {
+        ...this.state.currentUser,
+
+        userParties: {
+          ...this.state.currentUser.userParties,
+          attending: currentAttendances
+        }
+      }
+    });
+  };
+
+  newAttendance = item => {
+    if (
+      !this.state.currentUser.userParties.attending.some(
+        i => i.user_id === this.state.DBID
+      )
+    ) {
+      let newLocation = item.details.attendances[0].location;
+      let newDate = item.details.attendances[0].date;
+      fetch("http://localhost:3000/api/v1/attendances", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          user_id: this.state.DBID,
+          cooking_party_id: item.details.id,
+          host: false,
+          location: newLocation,
+          date: newDate
+        })
+      })
+        .then(res => res.json())
+        .then(response => this.updateAttendances(response));
+    } else {
+      alert("You are already going to that Party!!!");
+    }
   };
 
   render() {
@@ -162,6 +206,7 @@ class App extends Component {
                       currentUser={this.state.currentUser}
                       parties={this.state.parties}
                       logout={this.logout}
+                      newAttendance={this.newAttendance}
                     />
                   )}
                 />

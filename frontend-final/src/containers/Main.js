@@ -37,8 +37,11 @@ class Main extends Component {
           </div>
         </div>
 
-        <div className="ui grid">
-          <PartyCollection parties={this.props.parties} />
+        <div className="ui grid center aligned">
+          <PartyCollection
+            parties={this.props.parties}
+            newAttendance={this.props.newAttendance}
+          />
         </div>
       </Container>
     );

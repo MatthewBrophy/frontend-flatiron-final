@@ -75,6 +75,7 @@ code {
 
 #party-card-image {
   max-width: 70px;
+  max-height: 140px;
   border: solid 2px white;
   border-radius: 10px;
 }
@@ -149,6 +150,7 @@ code {
 #party-nav-bar {
   border: 2px solid black;
   border-radius: 10px;
+  margin-bottom: 0px;
 }
 
 #nav-bar-title {
@@ -159,4 +161,39 @@ code {
 
 #party-section {
   width: 100%;
+}
+
+#party-display-group {
+  overflow: auto;
+  margin: 10px;
+  height: 300px;
+  flex-wrap: nowrap;
+}
+
+#normal-party-card {
+  max-height: 250px;
+  min-height: 250px;
+  min-width: 180px;
+  max-width: 180px;
+}
+
+#normal-card-content {
+  overflow: auto;
+  max-height: 200px;
+}
+
+#normal-card-button {
+}
+
+#main-party-card-image {
+  max-width: 140px;
+  max-height: 140px;
+  margin-bottom: 5px;
+  border: solid 2px white;
+  border-radius: 10px;
+}
+
+#party-pane {
+  margin: auto auto 20px auto;
+  width: 99%;
 }

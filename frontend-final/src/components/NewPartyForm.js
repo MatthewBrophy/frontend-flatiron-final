@@ -17,9 +17,27 @@ class NewPartyForm extends Component {
     partyLocation: ""
   };
 
-  setPartyName = info => this.setState({ partyName: info });
-  setPartyTheme = info => this.setState({ partyTheme: info });
-  setPartyDescription = info => this.setState({ partyDescription: info });
+  setPartyName = info => {
+    if (info.length <= 15) {
+      this.setState({ partyName: info });
+    } else {
+      alert("Party Name Must be Less than 15 Characters!");
+    }
+  };
+  setPartyTheme = info => {
+    if (info.length <= 15) {
+      this.setState({ partyTheme: info });
+    } else {
+      alert("Party Theme Must be Less than 15 Characters!");
+    }
+  };
+  setPartyDescription = info => {
+    if (info.length <= 250) {
+      this.setState({ partyDescription: info });
+    } else {
+      alert("Party Description Must be Less than 250 Characters!");
+    }
+  };
   setPartyDate = info => this.setState({ startDate: info });
   setPartyImage = info => this.setState({ partyImage: info });
   setPartyLocation = info => this.setState({ partyLocation: info });
@@ -80,13 +98,13 @@ class NewPartyForm extends Component {
           <Form.Input
             fluid
             label="Party Name:"
-            placeholder="Party Name..."
+            placeholder="Party Name...(15 Characters Max)"
             onChange={e => this.setPartyName(e.target.value)}
           />
           <Form.Input
             fluid
             label="Party Theme:"
-            placeholder="Theme Your Party..."
+            placeholder="Party Theme...(15 Characters Max)"
             onChange={e => this.setPartyTheme(e.target.value)}
           />
         </Form.Group>
@@ -100,18 +118,17 @@ class NewPartyForm extends Component {
           <Form.Input
             fluid
             label="Party Location:"
-            placeholder="Address..."
+            placeholder="Party Address..."
             onChange={e => this.setPartyLocation(e.target.value)}
           />
         </Form.Group>
         <Form.TextArea
           label="Party Description:"
-          placeholder="Tell us more about your party..."
+          placeholder="Tell us more about your party...(250 characters max)"
           onChange={e => this.setPartyDescription(e.target.value)}
         />
 
         <Form.Button>Submit</Form.Button>
-        {console.log("state at Friends", this.state)}
       </Form>
     );
   }

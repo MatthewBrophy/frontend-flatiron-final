@@ -63,9 +63,12 @@ class MiniPartyCard extends Component {
     }
     let day = this.props.details.date.slice(8, 10);
     let hour = parseInt(this.props.details.date.slice(11, 13)) - 7;
+
     let convertedHour;
     if (hour > 12) {
       convertedHour = hour - 12;
+    } else if (hour <= -1) {
+      convertedHour = hour + 12;
     } else {
       convertedHour = hour;
     }
@@ -73,7 +76,7 @@ class MiniPartyCard extends Component {
     let convertedMinutes;
     if (hour > 12) {
       convertedMinutes = `${minutes} PM`;
-    } else if (hour === 12) {
+    } else if (hour === 12 || hour <= -1) {
       convertedMinutes = `${minutes} PM`;
     } else {
       convertedMinutes = `${minutes} AM`;

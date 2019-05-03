@@ -14,11 +14,12 @@ class PartyCollection extends Component {
 
   render() {
     return (
-      <div id="party-section">
+      <div id="party-section" className="center aligned">
         <PartyNavBar updateSelection={this.updateSelection} />
         <PartyDisplayPane
           selected={this.state.activeItem}
           parties={this.props.parties}
+          newAttendance={this.props.newAttendance}
         />
       </div>
     );
