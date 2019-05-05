@@ -23,9 +23,8 @@ class MenuButton extends Component {
               as={Link}
               to="/host-a-party"
             />
+            <Dropdown.Item text="All Your Parties" />
             <Dropdown.Item text="Home" as={Link} to="/" />
-            <Dropdown.Item text="Invite Friends" />
-            <Dropdown.Item text="Edit Profile" />
             <Dropdown.Item
               text="Log Out"
               as={Link}

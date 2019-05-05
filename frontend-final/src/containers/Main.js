@@ -32,7 +32,7 @@ class Main extends Component {
               <UpcomingParties user={this.props.currentUser} />
             </div>
             <div className="column center aligned">
-              <FeaturedEvents />
+              <FeaturedEvents parties={this.props.parties} />
             </div>
           </div>
         </div>

@@ -14,7 +14,8 @@ class NewPartyForm extends Component {
     host: true,
     startDate: new Date(),
     partyImage: "",
-    partyLocation: ""
+    partyLocation: "",
+    sponsored: false
   };
 
   setPartyName = info => {
@@ -41,6 +42,7 @@ class NewPartyForm extends Component {
   setPartyDate = info => this.setState({ startDate: info });
   setPartyImage = info => this.setState({ partyImage: info });
   setPartyLocation = info => this.setState({ partyLocation: info });
+  setPartySponsorship = info => this.setState({ sponsored: info });
 
   submitForm = e => {
     fetch("http://localhost:3000/api/v1/cooking_parties", {
@@ -56,7 +58,8 @@ class NewPartyForm extends Component {
         host: true,
         date: this.state.startDate,
         image: this.state.partyImage,
-        location: this.state.partyLocation
+        location: this.state.partyLocation,
+        sponsored: this.state.sponsored
       })
     })
       .then(res => res.json())
@@ -65,7 +68,7 @@ class NewPartyForm extends Component {
   };
 
   redirectHome = () => {
-    window.location.replace("https://localhost:3001/");
+    window.history.back();
   };
 
   render() {
@@ -110,12 +113,14 @@ class NewPartyForm extends Component {
         </Form.Group>
         <Form.Group widths="equal">
           <Form.Input
+            id="form-label"
             fluid
             label="Party Cover Image:"
             placeholder="Select an image URL to import..."
             onChange={e => this.setPartyImage(e.target.value)}
           />
           <Form.Input
+            id="form-label"
             fluid
             label="Party Location:"
             placeholder="Party Address..."
@@ -123,10 +128,24 @@ class NewPartyForm extends Component {
           />
         </Form.Group>
         <Form.TextArea
+          id="form-label"
           label="Party Description:"
           placeholder="Tell us more about your party...(250 characters max)"
           onChange={e => this.setPartyDescription(e.target.value)}
         />
+        <Form.Group id="form-sponsored">
+          <Form.Field
+            label="Sponsored?"
+            control="select"
+            type="checkbox"
+            onChange={e => this.setPartySponsorship(e.target.value)}
+          >
+            <option default value="false">
+              No
+            </option>
+            <option value="true">Yes</option>
+          </Form.Field>
+        </Form.Group>
 
         <Form.Button>Submit</Form.Button>
       </Form>

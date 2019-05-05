@@ -3,12 +3,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Acme", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: "Caviar Dreams", sans-serif, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: grey;
+  background-color: rgb(35, 153, 209);
 }
 
 code {
@@ -17,21 +17,20 @@ code {
 }
 
 #top-bar {
-  border: solid 2px black;
   border-radius: 10px;
   height: 100%;
   margin-top: 50px;
-  background-color: white;
 }
 
 #menu-button {
-  border: solid 2px black;
+  border: solid 2px rgb(11, 94, 133);
   border-radius: 10px;
   float: left;
   padding: 10px;
-  margin-top: 30px;
+  margin-top: 70px;
   margin-left: 30px;
   justify-content: center;
+  background: white;
 }
 
 #main-title {
@@ -41,7 +40,7 @@ code {
 }
 
 #profile-display {
-  border: solid 2px black;
+  border: solid 2px rgb(11, 94, 133);
   border-radius: 10px;
   padding: 10px;
   display: inline-flex;
@@ -51,8 +50,9 @@ code {
 }
 
 #profile-pic {
-  border: solid 2px blue;
+  border: solid 2px rgb(11, 94, 133);
   border-radius: 50px;
+  width: 75px;
   margin-top: 10px;
   margin-left: 50px;
 }
@@ -62,12 +62,13 @@ code {
 }
 
 #login-form {
+  background-image: url("../src/images/template.png");
   margin-top: 50px;
 }
 
 #upcoming-parties-pane {
   margin-top: 20px;
-  border: solid 2px black;
+  border: solid 2px rgb(11, 94, 133);
   border-radius: 10px;
   padding: 20px;
   background-color: white;
@@ -100,7 +101,7 @@ code {
   margin-left: auto;
   margin-right: auto;
   font-size: 20px;
-  background-color: grey;
+  background-color: rgb(35, 153, 209);
   padding: 10px;
 }
 
@@ -136,19 +137,19 @@ code {
 #party-bar-item {
   margin: 5px 15px 5px 15px;
   padding: 2px 5px 2px 5px;
-  border: 2px solid black;
+  border: 2px solid rgb(11, 94, 133);
   border-radius: 10px;
 }
 
 #party-bar-host {
   margin: 5px auto 5px auto;
   padding: 2px 5px 2px 5px;
-  border: 2px solid black;
+  border: 2px solid rgb(11, 94, 133);
   border-radius: 10px;
 }
 
 #party-nav-bar {
-  border: 2px solid black;
+  border: 2px solid rgb(11, 94, 133);
   border-radius: 10px;
   margin-bottom: 0px;
 }
@@ -196,4 +197,54 @@ code {
 #party-pane {
   margin: auto auto 20px auto;
   width: 99%;
+  border: 2px solid rgb(11, 94, 133);
+  border-radius: 10px;
+}
+
+#pie-credit {
+  color: white;
+  margin: auto;
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  margin-left: -155px;
+}
+
+#pie-credit-link {
+  color: white;
+}
+
+#login-image {
+  width: 100%;
+}
+
+#facebook-login {
+  text-align: center;
+  height: 100px;
+  width: 300px;
+  position: absolute;
+  left: 50%;
+  margin-left: -150px;
+  top: 80%;
+}
+
+#form-field-title {
+  color: white;
+}
+
+#form-sponsored {
+  text-align: center;
+  margin-left: 42%;
+}
+
+#title-bar-image {
+  width: 70%;
+  margin-right: 150px;
+}
+
+#sponsored-display {
+  margin-top: 20px;
+  border: 2px solid rgb(11, 94, 133);
+  border-radius: 10px;
+  height: 96.5%;
 }

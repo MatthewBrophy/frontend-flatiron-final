@@ -40,14 +40,14 @@ class App extends Component {
   seedAllParties = () => {
     fetch("http://localhost:3000/api/v1/cooking_parties")
       .then(response => response.json())
-      .then(allParties =>
+      .then(allParties => {
         this.setState({
           parties: {
             ...this.state.parties,
             allParties: allParties
           }
-        })
-      );
+        });
+      });
   };
 
   fetchUserHostings = id => {
@@ -136,7 +136,7 @@ class App extends Component {
           }
         }
       },
-      async () => <Redirect to="/" />
+      async () => this.seedAllParties()
     );
   };
 

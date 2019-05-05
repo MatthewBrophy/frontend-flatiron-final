@@ -16,6 +16,43 @@ class PartyDisplayPane extends Component {
             <PartyCard
               details={details}
               newAttendance={this.props.newAttendance}
+              key={details.id}
+            />
+          ))}
+        </Card.Group>
+      </Segment.Group>
+    );
+  };
+
+  displaySoonestParties = () => {
+    let soonestParties = this.props.parties.allParties.slice().reverse();
+    return (
+      <Segment.Group horizontal id="party-pane">
+        <Card.Group id="party-display-group">
+          {soonestParties.map(details => (
+            <PartyCard
+              details={details}
+              newAttendance={this.props.newAttendance}
+              key={details.id}
+            />
+          ))}
+        </Card.Group>
+      </Segment.Group>
+    );
+  };
+
+  displaySponsoredParties = () => {
+    let sponsoredParties = this.props.parties.allParties.filter(
+      party => party.sponsored === true
+    );
+    return (
+      <Segment.Group horizontal id="party-pane">
+        <Card.Group id="party-display-group">
+          {sponsoredParties.map(details => (
+            <PartyCard
+              details={details}
+              newAttendance={this.props.newAttendance}
+              key={details.id}
             />
           ))}
         </Card.Group>
@@ -25,15 +62,13 @@ class PartyDisplayPane extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div id="party-display-pane" className="row">
         {this.props.selected === "allParties"
           ? this.displayAllParties()
           : this.props.selected === "soonestParties"
-          ? console.log("Your mom soon")
-          : this.props.selected === "newestParties"
-          ? console.log("Your newest mom")
+          ? this.displaySoonestParties()
           : this.props.selected === "sponsoredParties"
-          ? console.log("ooooh your mom is sponsored")
+          ? this.displaySponsoredParties()
           : null}
       </div>
     );

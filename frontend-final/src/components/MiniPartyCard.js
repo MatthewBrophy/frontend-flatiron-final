@@ -7,6 +7,7 @@ class MiniPartyCard extends Component {
     this.state = {
       partyImage: "",
       partyDescription: "",
+      name: "",
       theme: "",
       host: this.props.details.host,
       date: ""
@@ -100,7 +101,8 @@ class MiniPartyCard extends Component {
         this.setState({
           partyImage: details.image,
           partyDescription: details.description,
-          theme: details.theme
+          theme: details.theme,
+          name: details.name
         })
       );
   };
@@ -110,7 +112,7 @@ class MiniPartyCard extends Component {
       <Card id="mini-party-card">
         <Card.Content>
           <Image src={this.state.partyImage} id="party-card-image" />
-          <Card.Header>{this.state.theme}</Card.Header>
+          <Card.Header>{this.state.name}</Card.Header>
           <Card.Meta>Date: {this.state.date}</Card.Meta>
           <Card.Description>{this.state.partyDescription}</Card.Description>
         </Card.Content>

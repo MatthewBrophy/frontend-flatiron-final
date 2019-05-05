@@ -40,16 +40,6 @@ export default class PartyNavBar extends Component {
         <Menu.Item
           id="party-bar-item"
           className="blue item"
-          name="newestParties"
-          active={activeItem === "newestParties"}
-          onClick={this.handleItemClick}
-        >
-          Newest Parties
-        </Menu.Item>
-
-        <Menu.Item
-          id="party-bar-item"
-          className="blue item"
           name="sponsoredParties"
           active={activeItem === "sponsoredParties"}
           onClick={this.handleItemClick}

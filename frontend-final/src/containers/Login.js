@@ -9,6 +9,7 @@ import {
   Message,
   Segment
 } from "semantic-ui-react";
+import CoverImage from "../images/template2.png";
 
 export default class Login extends Component {
   constructor(props) {
@@ -56,6 +57,7 @@ export default class Login extends Component {
     } else {
       fbContent = (
         <FacebookLogin
+          id="login-button"
           appId="677417279343452"
           autoLoad={true}
           fields="name,email,picture"
@@ -66,28 +68,19 @@ export default class Login extends Component {
     }
 
     return (
-      <div id="login-form">
-        <style>
-          {`
-      body > div,
-      body > div > div,
-      body > div > div > div.login-form {
-        height: 100%;
-      }
-    `}
-        </style>
-        <Grid
-          textAlign="center"
-          style={{ height: "100%" }}
-          verticalAlign="middle"
-        >
-          <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as="h2" color="teal" textAlign="center">
-              <Image src="/logo.png" /> Log-in with FaceBook
-            </Header>
-            {fbContent}
-          </Grid.Column>
-        </Grid>
+      <div>
+        <img id="login-image" src={CoverImage} alt="" />
+        <div id="facebook-login">{fbContent}</div>
+        <div id="pie-credit">
+          <a
+            id="pie-credit-link"
+            href="https://www.vexels.com/vectors/preview/156925/pumpkin-pie-slice-cartoon-icon"
+          >
+            {" "}
+            Pumpkin pie slice cartoon icon{" "}
+          </a>{" "}
+          | designed by Vexels
+        </div>
       </div>
     );
   }
