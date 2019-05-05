@@ -19,14 +19,14 @@ class NewPartyForm extends Component {
   };
 
   setPartyName = info => {
-    if (info.length <= 15) {
+    if (info.length <= 25) {
       this.setState({ partyName: info });
     } else {
       alert("Party Name Must be Less than 15 Characters!");
     }
   };
   setPartyTheme = info => {
-    if (info.length <= 15) {
+    if (info.length <= 25) {
       this.setState({ partyTheme: info });
     } else {
       alert("Party Theme Must be Less than 15 Characters!");
@@ -101,13 +101,13 @@ class NewPartyForm extends Component {
           <Form.Input
             fluid
             label="Party Name:"
-            placeholder="Party Name...(15 Characters Max)"
+            placeholder="Party Name...(25 Characters Max)"
             onChange={e => this.setPartyName(e.target.value)}
           />
           <Form.Input
             fluid
             label="Party Theme:"
-            placeholder="Party Theme...(15 Characters Max)"
+            placeholder="Party Theme...(25 Characters Max)"
             onChange={e => this.setPartyTheme(e.target.value)}
           />
         </Form.Group>

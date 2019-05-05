@@ -3,9 +3,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Caviar Dreams", sans-serif, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "Acme", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(35, 153, 209);
@@ -68,6 +68,7 @@ code {
 
 #upcoming-parties-pane {
   margin-top: 20px;
+  height: 75.8%;
   border: solid 2px rgb(11, 94, 133);
   border-radius: 10px;
   padding: 20px;
@@ -162,6 +163,7 @@ code {
 
 #party-section {
   width: 100%;
+  margin-top: 10px;
 }
 
 #party-display-group {
@@ -243,8 +245,48 @@ code {
 }
 
 #sponsored-display {
+  background-color: rgb(209, 130, 36);
   margin-top: 20px;
   border: 2px solid rgb(11, 94, 133);
   border-radius: 10px;
-  height: 96.5%;
+}
+
+#featured-party-card {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgb(11, 94, 133);
+  border-radius: 10px;
+}
+
+#featured-party-card-image {
+  max-height: 300px;
+  width: 90%;
+  border: 2px solid rgb(11, 94, 133);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#featured-title {
+  color: white;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+
+#carousel-back-button {
+  color: white;
+  background-color: rgb(35, 153, 209);
+  border: 2px solid rgb(11, 94, 133);
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-right: 50px;
+}
+
+#carousel-next-button {
+  color: white;
+  background-color: rgb(35, 153, 209);
+  border: 2px solid rgb(11, 94, 133);
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 50px;
 }

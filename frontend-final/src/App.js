@@ -5,7 +5,6 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import { Container } from "semantic-ui-react";
 
 import Login from "./containers/Login";
 import Main from "./containers/Main";
@@ -28,8 +27,6 @@ class App extends Component {
         }
       },
       parties: {
-        sponsoredParties: [],
-        featuredParties: [],
         allParties: [],
         soonestParties: [],
         newestParties: []
@@ -120,7 +117,6 @@ class App extends Component {
   };
 
   updateHostings = newAttendance => {
-    console.log("updated hostings");
     let currentHostings = [
       ...this.state.currentUser.userParties.hosting,
       newAttendance
@@ -186,6 +182,7 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
+        {console.log("username", this.state.currentUser.userName)}
         <Router>
           <div>
             <Switch>

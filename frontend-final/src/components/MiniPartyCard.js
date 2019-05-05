@@ -10,7 +10,8 @@ class MiniPartyCard extends Component {
       name: "",
       theme: "",
       host: this.props.details.host,
-      date: ""
+      date: "",
+      attendees: []
     };
     this.retrievePartyDetails();
   }
@@ -107,9 +108,28 @@ class MiniPartyCard extends Component {
       );
   };
 
+  retrievePartyAttendees = () => {
+    fetch(
+      `http://localhost:3000/api/v1/cooking_parties/${
+        this.props.details.cooking_party_id
+      }/retrieve-attendances`
+    )
+      .then(res => res.json())
+      .then(attendees =>
+        this.setState(
+          { attendees: attendees },
+          console.log("attendees", this.state.attendees)
+        )
+      );
+  };
+
   render() {
     return (
-      <Card id="mini-party-card">
+      <Card
+        id="mini-party-card"
+        onMouseEnter={() => this.retrievePartyAttendees()}
+      >
+        {console.log("props at minicard", this.state.attendees)}
         <Card.Content>
           <Image src={this.state.partyImage} id="party-card-image" />
           <Card.Header>{this.state.name}</Card.Header>

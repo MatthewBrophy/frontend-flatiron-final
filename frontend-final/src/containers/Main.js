@@ -32,13 +32,18 @@ class Main extends Component {
               <UpcomingParties user={this.props.currentUser} />
             </div>
             <div className="column center aligned">
-              <FeaturedEvents parties={this.props.parties} />
+              <FeaturedEvents
+                user={this.props.currentUser}
+                parties={this.props.parties}
+                newAttendance={this.props.newAttendance}
+              />
             </div>
           </div>
         </div>
 
         <div className="ui grid center aligned">
           <PartyCollection
+            user={this.props.currentUser}
             parties={this.props.parties}
             newAttendance={this.props.newAttendance}
           />

@@ -88,6 +88,7 @@ class PartyCard extends Component {
   render() {
     return (
       <Card id="normal-party-card">
+        {console.log("props at main party card", this.props)}
         <Card.Content className="center aligned" id="normal-card-content">
           <Image
             size="small"
