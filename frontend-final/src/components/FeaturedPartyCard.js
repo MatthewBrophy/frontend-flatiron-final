@@ -94,11 +94,15 @@ class FeaturedPardCard extends Component {
             src={this.props.details.image}
             size="medium"
           />
-          <Card.Header>{this.props.details.name}</Card.Header>
+          <Card.Header id="featured-card-title">
+            {this.props.details.name}
+          </Card.Header>
           <Card.Meta id="featured-card-hosted-by">
             Hosted By: {this.props.user.userName} on {this.state.date}
           </Card.Meta>
-          <Card.Description>{this.props.details.description}</Card.Description>
+          <Card.Description id="featured-party-description">
+            {this.props.details.description}
+          </Card.Description>
         </Card.Content>
         <Card.Content extra>
           <Popup trigger={<Icon circular name="user circle" color="blue" />}>

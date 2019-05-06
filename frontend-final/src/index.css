@@ -207,7 +207,7 @@ code {
 #party-display-group {
   overflow: auto;
   margin-top: 0px;
-
+  width: 102%;
   border: 2px solid rgb(54, 241, 205);
   border-radius: 10px;
   height: 350px;
@@ -216,8 +216,8 @@ code {
 }
 
 #normal-party-card {
-  max-height: 300px;
-  min-height: 300px;
+  max-height: 320px;
+  min-height: 320px;
   min-width: 180px;
   max-width: 180px;
   margin: auto 10px auto 10px;
@@ -308,7 +308,7 @@ code {
 }
 
 #featured-party-card-image {
-  max-height: 250px;
+  max-height: 230px;
   max-width: 90%;
   border: 2px solid rgb(76, 96, 133);
   border-radius: 10px;
@@ -318,6 +318,16 @@ code {
 #featured-title {
   font-size: 30px;
   margin-bottom: 0;
+}
+
+#featured-card-title {
+  font-size: 30px;
+}
+
+#featured-party-description {
+  margin: 10px 0px auto 0px;
+  padding: 2%;
+  font-size: 20px;
 }
 
 #carousel-back-button {

@@ -22,14 +22,14 @@ class NewPartyForm extends Component {
     if (info.length <= 25) {
       this.setState({ partyName: info });
     } else {
-      alert("Party Name Must be Less than 15 Characters!");
+      alert("Party Name Must be Less than 25 Characters!");
     }
   };
   setPartyTheme = info => {
     if (info.length <= 25) {
       this.setState({ partyTheme: info });
     } else {
-      alert("Party Theme Must be Less than 15 Characters!");
+      alert("Party Theme Must be Less than 25 Characters!");
     }
   };
   setPartyDescription = info => {

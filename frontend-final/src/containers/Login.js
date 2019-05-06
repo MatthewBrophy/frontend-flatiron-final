@@ -18,7 +18,6 @@ export default class Login extends Component {
     this.state = {
       isLoggedIn: false,
       name: "",
-      email: "",
       picture: "",
       auth_key: ""
     };
@@ -32,7 +31,6 @@ export default class Login extends Component {
         },
         body: JSON.stringify({
           name: response.name,
-          email: response.email,
           picture: response.picture.data.url,
           auth_key: response.userID.slice(0, 5)
         })
@@ -40,7 +38,6 @@ export default class Login extends Component {
         this.setState({
           isLoggedIn: true,
           name: response.name,
-          email: response.email,
           picture: response.picture.data.url,
           auth_key: response.userID.slice(0, 5)
         })
@@ -60,7 +57,7 @@ export default class Login extends Component {
           id="login-button"
           appId="677417279343452"
           autoLoad={true}
-          fields="name,email,picture"
+          fields="name,picture"
           onClick={this.componentClicked}
           callback={this.responseFacebook}
         />
