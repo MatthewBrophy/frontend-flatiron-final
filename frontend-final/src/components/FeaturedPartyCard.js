@@ -95,7 +95,7 @@ class FeaturedPardCard extends Component {
             size="medium"
           />
           <Card.Header>{this.props.details.name}</Card.Header>
-          <Card.Meta>
+          <Card.Meta id="featured-card-hosted-by">
             Hosted By: {this.props.user.userName} on {this.state.date}
           </Card.Meta>
           <Card.Description>{this.props.details.description}</Card.Description>
@@ -108,8 +108,8 @@ class FeaturedPardCard extends Component {
           </Popup>{" "}
           <p id="party-card-attendees">See Whose Attending</p>
           <Button
+            id="attend-button"
             basic
-            color="blue"
             onClick={() => this.props.newAttendance(this.props)}
           >
             Attend

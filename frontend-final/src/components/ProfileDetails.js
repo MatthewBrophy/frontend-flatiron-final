@@ -11,10 +11,12 @@ class ProfileDetails extends Component {
             alt="user profile pic"
           />
         </div>
-        <div className="item" id="profile-details">
-          <p>{this.props.user.userName}</p>
-          <p>Hosted Parties: {this.props.user.userParties.hosting.length}</p>
-          <p>
+        <div className="item">
+          <p id="profile-details1">{this.props.user.userName}</p>
+          <p id="profile-details2">
+            Hosted Parties: {this.props.user.userParties.hosting.length}
+          </p>
+          <p id="profile-details2">
             Parties Attended: {this.props.user.userParties.attending.length}
           </p>
         </div>

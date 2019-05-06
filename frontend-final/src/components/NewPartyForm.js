@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form } from "semantic-ui-react";
+import { Form, Icon } from "semantic-ui-react";
 
 import DatePicker from "react-datepicker";
 
@@ -99,12 +99,14 @@ class NewPartyForm extends Component {
         </Form.Group>
         <Form.Group widths="equal">
           <Form.Input
+            required
             fluid
             label="Party Name:"
             placeholder="Party Name...(25 Characters Max)"
             onChange={e => this.setPartyName(e.target.value)}
           />
           <Form.Input
+            required
             fluid
             label="Party Theme:"
             placeholder="Party Theme...(25 Characters Max)"
@@ -113,14 +115,14 @@ class NewPartyForm extends Component {
         </Form.Group>
         <Form.Group widths="equal">
           <Form.Input
-            id="form-label"
+            required
             fluid
             label="Party Cover Image:"
             placeholder="Select an image URL to import..."
             onChange={e => this.setPartyImage(e.target.value)}
           />
           <Form.Input
-            id="form-label"
+            required
             fluid
             label="Party Location:"
             placeholder="Party Address..."
@@ -128,7 +130,7 @@ class NewPartyForm extends Component {
           />
         </Form.Group>
         <Form.TextArea
-          id="form-label"
+          required
           label="Party Description:"
           placeholder="Tell us more about your party...(250 characters max)"
           onChange={e => this.setPartyDescription(e.target.value)}
@@ -146,8 +148,13 @@ class NewPartyForm extends Component {
             <option value="true">Yes</option>
           </Form.Field>
         </Form.Group>
-
-        <Form.Button>Submit</Form.Button>
+        <p id="sponsored-explanation">
+          <Icon name="lightbulb outline" />
+          Sponsored Parties appear in the Featured Events display. Please only
+          list your party as sponsored if the purpose is to help feed people in
+          need.
+        </p>
+        <Form.Button id="new-form-submit">Submit</Form.Button>
       </Form>
     );
   }

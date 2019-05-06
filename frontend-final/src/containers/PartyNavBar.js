@@ -19,7 +19,7 @@ export default class PartyNavBar extends Component {
 
         <Menu.Item
           id="party-bar-item"
-          className="blue item"
+          className="green item"
           name="allParties"
           active={activeItem === "allParties"}
           onClick={this.handleItemClick}
@@ -29,7 +29,7 @@ export default class PartyNavBar extends Component {
 
         <Menu.Item
           id="party-bar-item"
-          className="blue item"
+          className="green item"
           name="soonestParties"
           active={activeItem === "soonestParties"}
           onClick={this.handleItemClick}
@@ -39,7 +39,7 @@ export default class PartyNavBar extends Component {
 
         <Menu.Item
           id="party-bar-item"
-          className="blue item"
+          className="green item"
           name="sponsoredParties"
           active={activeItem === "sponsoredParties"}
           onClick={this.handleItemClick}
@@ -49,7 +49,6 @@ export default class PartyNavBar extends Component {
 
         <Menu.Item
           id="party-bar-host"
-          className="blue item"
           name="hostAParty"
           active={activeItem === "hostAParty"}
           onClick={this.handleItemClick}

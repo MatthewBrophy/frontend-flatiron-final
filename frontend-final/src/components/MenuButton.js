@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Dropdown, Container } from "semantic-ui-react";
+import { Dropdown, Container, Icon } from "semantic-ui-react";
 import { Redirect, Link } from "react-router-dom";
 import UsersParties from "../containers/UsersParties";
 
@@ -17,19 +17,33 @@ class MenuButton extends Component {
     return (
       <div>
         <Dropdown text="Menu" id="menu-button">
-          <Dropdown.Menu>
+          <Dropdown.Menu id="dropdown-menu">
             <Dropdown.Item
+              id="dropdown-item"
               text="Host a New Party"
               as={Link}
               to="/host-a-party"
+              icon="plus"
             />
-            <Dropdown.Item text="All Your Parties" />
-            <Dropdown.Item text="Home" as={Link} to="/" />
             <Dropdown.Item
+              text="All Your Parties"
+              icon="newspaper"
+              id="dropdown-item"
+            />
+            <Dropdown.Item
+              text="Home"
+              as={Link}
+              to="/"
+              icon="home"
+              id="dropdown-item"
+            />
+            <Dropdown.Item
+              id="dropdown-item"
               text="Log Out"
               as={Link}
               to="/"
               onClick={() => this.FBLogout()}
+              icon="sign-out"
             />
           </Dropdown.Menu>
         </Dropdown>
