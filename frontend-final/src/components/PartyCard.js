@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Image, Button, Segment } from "semantic-ui-react";
+import { Card, Image, Button, Popup, Icon } from "semantic-ui-react";
 
 class PartyCard extends Component {
   constructor(props) {
@@ -88,7 +88,6 @@ class PartyCard extends Component {
   render() {
     return (
       <Card id="normal-party-card">
-        {console.log("props at main party card", this.props)}
         <Card.Content className="center aligned" id="normal-card-content">
           <Image
             size="small"
@@ -100,6 +99,12 @@ class PartyCard extends Component {
           <Card.Description>{this.props.details.description}</Card.Description>
         </Card.Content>
         <Card.Content extra className="ui center aligned">
+          <Popup trigger={<Icon circular name="user circle" color="blue" />}>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+          </Popup>{" "}
+          <p id="party-card-attendees">See Whose Attending</p>
           <Button
             basic
             color="blue"

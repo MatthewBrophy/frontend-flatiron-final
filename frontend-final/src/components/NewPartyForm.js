@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form } from "semantic-ui-react";
-import { Link, Redirect } from "react-router-dom";
+
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";

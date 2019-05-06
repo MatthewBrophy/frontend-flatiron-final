@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Card, Image } from "semantic-ui-react";
+import { Button, Card, Image, Icon, Popup } from "semantic-ui-react";
 
 class FeaturedPardCard extends Component {
   constructor(props) {
@@ -101,6 +101,12 @@ class FeaturedPardCard extends Component {
           <Card.Description>{this.props.details.description}</Card.Description>
         </Card.Content>
         <Card.Content extra>
+          <Popup trigger={<Icon circular name="user circle" color="blue" />}>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+          </Popup>{" "}
+          <p id="party-card-attendees">See Whose Attending</p>
           <Button
             basic
             color="blue"

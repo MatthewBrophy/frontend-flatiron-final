@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Button, Card, Image } from "semantic-ui-react";
+import React, { Component, Fragment } from "react";
+import { Button, Card, Image, Popup, Icon } from "semantic-ui-react";
 
 class MiniPartyCard extends Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class MiniPartyCard extends Component {
       attendees: []
     };
     this.retrievePartyDetails();
+    this.retrievePartyAttendees();
   }
 
   componentDidMount() {
@@ -116,8 +117,7 @@ class MiniPartyCard extends Component {
     )
       .then(res => res.json())
       .then(attendees =>
-        this.setState(
-          { attendees: attendees },
+        this.setState({ attendees: attendees }, async () =>
           console.log("attendees", this.state.attendees)
         )
       );
@@ -125,18 +125,22 @@ class MiniPartyCard extends Component {
 
   render() {
     return (
-      <Card
-        id="mini-party-card"
-        onMouseEnter={() => this.retrievePartyAttendees()}
-      >
-        {console.log("props at minicard", this.state.attendees)}
-        <Card.Content>
-          <Image src={this.state.partyImage} id="party-card-image" />
-          <Card.Header>{this.state.name}</Card.Header>
-          <Card.Meta>Date: {this.state.date}</Card.Meta>
-          <Card.Description>{this.state.partyDescription}</Card.Description>
-        </Card.Content>
-      </Card>
+      <Fragment>
+        <Card id="mini-party-card">
+          <Card.Content>
+            <Image src={this.state.partyImage} id="party-card-image" />
+            <Card.Header>{this.state.name}</Card.Header>
+            <Popup trigger={<Icon circular name="user circle" color="blue" />}>
+              <p>test</p>
+              <p>test</p>
+              <p>test</p>
+            </Popup>
+            <Card.Meta>See Whose Attending</Card.Meta>
+            <Card.Meta>Date: {this.state.date}</Card.Meta>
+            <Card.Description>{this.state.partyDescription}</Card.Description>
+          </Card.Content>
+        </Card>
+      </Fragment>
     );
   }
 }
