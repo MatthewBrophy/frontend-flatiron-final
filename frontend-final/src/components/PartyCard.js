@@ -104,8 +104,9 @@ class PartyCard extends Component {
             id="attendee-popup-window"
             trigger={<Icon circular name="user circle" color="blue" />}
           >
-            {this.props.details.users.map(attendee => (
+            {this.props.details.users.map((attendee, index) => (
               <AttendeePopup
+                key={index}
                 profilePic={attendee.profile_pic}
                 profileName={attendee.name}
               />

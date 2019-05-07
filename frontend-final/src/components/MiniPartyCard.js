@@ -136,8 +136,9 @@ class MiniPartyCard extends Component {
               id="attendee-popup-window"
               trigger={<Icon circular name="user circle" color="blue" />}
             >
-              {this.state.attendees.map(attendee => (
+              {this.state.attendees.map((attendee, index) => (
                 <AttendeePopup
+                  key={index}
                   profilePic={attendee.user.profile_pic}
                   profileName={attendee.user.name}
                 />

@@ -31,7 +31,7 @@ class FeaturedEvents extends Component {
         >
           <Slider>
             {this.sponsoredEvents.map((party, index) => (
-              <Slide index={index}>
+              <Slide index={index} key={index}>
                 <FeaturedPartyCard
                   details={party}
                   newAttendance={this.props.newAttendance}

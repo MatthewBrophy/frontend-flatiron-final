@@ -6,13 +6,24 @@ class FeaturedPardCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: ""
+      date: "",
+      host: ""
     };
   }
 
   componentDidMount() {
     this.convertDate();
+    this.setHost();
   }
+
+  setHost = () => {
+    let id = this.props.details.id;
+    fetch(
+      `http://localhost:3000/api/v1/cooking_parties/${id}/retrieve-party-host`
+    )
+      .then(res => res.json())
+      .then(response => this.setState({ host: response.name }));
+  };
 
   convertDate = () => {
     let month = this.props.details.attendances[0].date.slice(5, 7);
@@ -99,7 +110,7 @@ class FeaturedPardCard extends Component {
             {this.props.details.name}
           </Card.Header>
           <Card.Meta id="featured-card-hosted-by">
-            Hosted By: {this.props.details.users[0].name} on {this.state.date}
+            Hosted By: {this.state.host} on {this.state.date}
           </Card.Meta>
           <Card.Description id="featured-party-description">
             {this.props.details.description}
@@ -110,8 +121,9 @@ class FeaturedPardCard extends Component {
             id="attendee-popup-window"
             trigger={<Icon circular name="user circle" color="blue" />}
           >
-            {this.props.details.users.map(attendee => (
+            {this.props.details.users.map((attendee, index) => (
               <AttendeePopup
+                key={index}
                 profilePic={attendee.profile_pic}
                 profileName={attendee.name}
               />
