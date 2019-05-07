@@ -141,16 +141,19 @@ class App extends Component {
       ...this.state.currentUser.userParties.attending,
       newAttendance
     ];
-    this.setState({
-      currentUser: {
-        ...this.state.currentUser,
+    this.setState(
+      {
+        currentUser: {
+          ...this.state.currentUser,
 
-        userParties: {
-          ...this.state.currentUser.userParties,
-          attending: currentAttendances
+          userParties: {
+            ...this.state.currentUser.userParties,
+            attending: currentAttendances
+          }
         }
-      }
-    });
+      },
+      async () => this.seedAllParties()
+    );
   };
 
   newAttendance = item => {

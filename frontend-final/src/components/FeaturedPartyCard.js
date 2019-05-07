@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Card, Image, Icon, Popup } from "semantic-ui-react";
+import AttendeePopup from "./AttendeePopup";
 
 class FeaturedPardCard extends Component {
   constructor(props) {
@@ -98,17 +99,23 @@ class FeaturedPardCard extends Component {
             {this.props.details.name}
           </Card.Header>
           <Card.Meta id="featured-card-hosted-by">
-            Hosted By: {this.props.user.userName} on {this.state.date}
+            Hosted By: {this.props.details.users[0].name} on {this.state.date}
           </Card.Meta>
           <Card.Description id="featured-party-description">
             {this.props.details.description}
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <Popup trigger={<Icon circular name="user circle" color="blue" />}>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
+          <Popup
+            id="attendee-popup-window"
+            trigger={<Icon circular name="user circle" color="blue" />}
+          >
+            {this.props.details.users.map(attendee => (
+              <AttendeePopup
+                profilePic={attendee.profile_pic}
+                profileName={attendee.name}
+              />
+            ))}
           </Popup>{" "}
           <p id="party-card-attendees">See Whose Attending</p>
           <Button

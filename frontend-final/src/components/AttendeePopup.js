@@ -9,13 +9,9 @@ class AttendeePopup extends Component {
     return (
       <Card id="popup">
         <Card.Content>
-          <Image
-            id="popup-pic"
-            size="mini"
-            src={this.props.attendee.user.profile_pic}
-          />
+          <Image id="popup-pic" size="mini" src={this.props.profilePic} />
           <Card.Description id="popup-name">
-            {this.props.attendee.user.name}
+            {this.props.profileName}
           </Card.Description>
         </Card.Content>
       </Card>

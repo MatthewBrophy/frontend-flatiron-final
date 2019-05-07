@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, Image, Button, Popup, Icon } from "semantic-ui-react";
+import AttendeePopup from "./AttendeePopup";
 
 class PartyCard extends Component {
   constructor(props) {
@@ -99,11 +100,17 @@ class PartyCard extends Component {
           <Card.Description>{this.props.details.description}</Card.Description>
         </Card.Content>
         <Card.Content extra className="ui center aligned">
-          <Popup trigger={<Icon circular name="user circle" color="blue" />}>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-          </Popup>{" "}
+          <Popup
+            id="attendee-popup-window"
+            trigger={<Icon circular name="user circle" color="blue" />}
+          >
+            {this.props.details.users.map(attendee => (
+              <AttendeePopup
+                profilePic={attendee.profile_pic}
+                profileName={attendee.name}
+              />
+            ))}
+          </Popup>
           <p id="whose-attending">See Whose Attending</p>
           <Button
             basic

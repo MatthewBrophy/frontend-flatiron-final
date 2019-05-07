@@ -25,17 +25,22 @@ class PartyDisplayPane extends Component {
   };
 
   displaySoonestParties = () => {
-    let soonestParties = this.props.parties.allParties.slice().reverse();
+    let soonestParties = this.props.parties.allParties.slice();
+
     return (
       <Segment.Group horizontal id="party-pane">
         <Card.Group id="party-display-group">
-          {soonestParties.map(details => (
-            <PartyCard
-              details={details}
-              newAttendance={this.props.newAttendance}
-              key={details.id}
-            />
-          ))}
+          {soonestParties
+            .sort((a, b) =>
+              a.attendances[0].date.localeCompare(b.attendances[0].date)
+            )
+            .map(details => (
+              <PartyCard
+                details={details}
+                newAttendance={this.props.newAttendance}
+                key={details.id}
+              />
+            ))}
         </Card.Group>
       </Segment.Group>
     );

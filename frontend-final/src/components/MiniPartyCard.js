@@ -121,9 +121,6 @@ class MiniPartyCard extends Component {
   };
 
   render() {
-    const filteredAttendees = this.state.attendees.filter(
-      attendee => attendee.host === false
-    );
     return (
       <Fragment>
         <Card id="mini-party-card">
@@ -139,11 +136,12 @@ class MiniPartyCard extends Component {
               id="attendee-popup-window"
               trigger={<Icon circular name="user circle" color="blue" />}
             >
-              {filteredAttendees.length
-                ? filteredAttendees.map(attendee => (
-                    <AttendeePopup attendee={attendee} />
-                  ))
-                : "No one is attending yet!"}
+              {this.state.attendees.map(attendee => (
+                <AttendeePopup
+                  profilePic={attendee.user.profile_pic}
+                  profileName={attendee.user.name}
+                />
+              ))}
             </Popup>
             <Card.Meta id="whose-attending">See Whose Attending</Card.Meta>
             <Card.Meta>Date: {this.state.date}</Card.Meta>
