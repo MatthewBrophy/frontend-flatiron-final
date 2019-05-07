@@ -101,7 +101,7 @@ code {
 }
 
 #party-card-image {
-  max-width: 70px;
+  max-width: 140px;
   max-height: 140px;
   border: solid 2px white;
   border-radius: 10px;
@@ -362,4 +362,38 @@ code {
 
 #featured-card-hosted-by {
   color: rgb(76, 96, 133);
+}
+
+#whose-attending {
+  display: inline-block;
+  padding: 2px;
+  color: black;
+}
+
+#attendee-popup-window {
+  background: linear-gradient(
+    147deg,
+    rgb(54, 241, 205) 0%,
+    rgb(202, 207, 133) 35%,
+    rgb(54, 241, 205) 100%
+  );
+  border: 2px solid rgb(54, 241, 205);
+}
+
+#popup {
+  border: 2px solid rgb(9, 21, 64);
+  background-color: rgb(76, 96, 133);
+}
+
+#popup-pic {
+  border-radius: 50px;
+  margin: auto 20px auto auto;
+  border: 2px solid rgb(54, 241, 205);
+}
+
+#popup-name {
+  display: inline-block;
+  margin: auto;
+  color: rgb(54, 241, 205);
+  font-size: 20px;
 }

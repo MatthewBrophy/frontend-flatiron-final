@@ -104,7 +104,7 @@ class PartyCard extends Component {
             <p>test</p>
             <p>test</p>
           </Popup>{" "}
-          <p id="party-card-attendees">See Whose Attending</p>
+          <p id="whose-attending">See Whose Attending</p>
           <Button
             basic
             color="blue"

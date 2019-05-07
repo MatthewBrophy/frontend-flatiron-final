@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
-import { Button, Card, Image, Popup, Icon } from "semantic-ui-react";
+import { Button, Card, Image, Popup, Icon, Segment } from "semantic-ui-react";
+import AttendeePopup from "../components/AttendeePopup";
 
 class MiniPartyCard extends Component {
   constructor(props) {
@@ -116,26 +117,35 @@ class MiniPartyCard extends Component {
       }/retrieve-attendances`
     )
       .then(res => res.json())
-      .then(attendees =>
-        this.setState({ attendees: attendees }, async () =>
-          console.log("attendees", this.state.attendees)
-        )
-      );
+      .then(attendees => this.setState({ attendees: attendees }));
   };
 
   render() {
+    const filteredAttendees = this.state.attendees.filter(
+      attendee => attendee.host === false
+    );
     return (
       <Fragment>
         <Card id="mini-party-card">
           <Card.Content>
-            <Image src={this.state.partyImage} id="party-card-image" />
+            <Image
+              src={this.state.partyImage}
+              id="party-card-image"
+              size="small"
+            />
             <Card.Header>{this.state.name}</Card.Header>
-            <Popup trigger={<Icon circular name="user circle" color="blue" />}>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
+
+            <Popup
+              id="attendee-popup-window"
+              trigger={<Icon circular name="user circle" color="blue" />}
+            >
+              {filteredAttendees.length
+                ? filteredAttendees.map(attendee => (
+                    <AttendeePopup attendee={attendee} />
+                  ))
+                : "No one is attending yet!"}
             </Popup>
-            <Card.Meta>See Whose Attending</Card.Meta>
+            <Card.Meta id="whose-attending">See Whose Attending</Card.Meta>
             <Card.Meta>Date: {this.state.date}</Card.Meta>
             <Card.Description>{this.state.partyDescription}</Card.Description>
           </Card.Content>

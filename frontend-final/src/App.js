@@ -154,35 +154,30 @@ class App extends Component {
   };
 
   newAttendance = item => {
-    if (
-      !this.state.currentUser.userParties.attending.some(
-        i => i.user_id === this.state.DBID
-      )
-    ) {
-      let newLocation = item.details.attendances[0].location;
-      let newDate = item.details.attendances[0].date;
-      fetch("http://localhost:3000/api/v1/attendances", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          user_id: this.state.DBID,
-          cooking_party_id: item.details.id,
-          host: false,
-          location: newLocation,
-          date: newDate
-        })
+    let newLocation = item.details.attendances[0].location;
+    let newDate = item.details.attendances[0].date;
+    fetch("http://localhost:3000/api/v1/attendances", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        user_id: this.state.DBID,
+        cooking_party_id: item.details.id,
+        host: false,
+        location: newLocation,
+        date: newDate
       })
-        .then(res => res.json())
-        .then(response => this.updateAttendances(response));
-    } else {
-      alert("You are already going to that Party!!!");
-    }
+    })
+      .then(res => res.json())
+      .then(response =>
+        response.errors
+          ? alert("You are already going!")
+          : this.updateAttendances(response)
+      );
   };
 
   render() {
     return (
       <div className="App container">
-        {console.log("username", this.state.currentUser.userName)}
         <Router>
           <div>
             <Switch>
