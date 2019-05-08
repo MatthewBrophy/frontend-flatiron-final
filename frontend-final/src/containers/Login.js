@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
+import { Popup } from "semantic-ui-react";
 
 import CoverImage from "../images/template2.png";
 
@@ -16,7 +17,7 @@ export default class Login extends Component {
   }
   responseFacebook = response => {
     if (response.status === undefined) {
-      fetch("https://neighborfood-backend.herokuapp.com/api/v1/users", {
+      fetch("http://localhost:3000/api/v1/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -52,6 +53,8 @@ export default class Login extends Component {
           fields="name,picture"
           onClick={this.componentClicked}
           callback={this.responseFacebook}
+          isMobile={true}
+          disableMobileRedirect={true}
         />
       );
     }
@@ -59,7 +62,32 @@ export default class Login extends Component {
     return (
       <div>
         <img id="login-image" src={CoverImage} alt="" />
-        <div id="facebook-login">{fbContent}</div>
+        <p id="login-tagline">
+          Host and attend cooking events. Build community around food with your
+          neighbors. Host events to help people in need.
+        </p>
+        <div id="facebook-login">
+          {fbContent}
+          <Popup
+            trigger={<p id="fb-explanation">*Why Facebook Login Only?</p>}
+            wide
+          >
+            <Popup.Content id="fb-explanation-popup">
+              <ol id="fb-explanation-list">
+                <li>
+                  Strangers can be scary. If you are attending a new neighbor's
+                  event, search for them on FB first.
+                </li>
+                <br />
+                <li>
+                  People are more likely to act in a socially responsible way
+                  when their accounts are tied to their social media presence.
+                </li>
+              </ol>
+              <p id="fb-only">*Only uses your name and profile picture*</p>
+            </Popup.Content>
+          </Popup>
+        </div>
         <div id="pie-credit">
           <a
             id="pie-credit-link"

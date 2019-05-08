@@ -95,7 +95,7 @@ class MiniPartyCard extends Component {
 
   retrievePartyDetails = () => {
     fetch(
-      `https://neighborfood-backend.herokuapp.com/api/v1/cooking_parties/${
+      `http://localhost:3000/api/v1/cooking_parties/${
         this.props.details.cooking_party_id
       }/retrieve-party-details`
     )
@@ -112,7 +112,7 @@ class MiniPartyCard extends Component {
 
   retrievePartyAttendees = () => {
     fetch(
-      `https://neighborfood-backend.herokuapp.com/api/v1/cooking_parties/${
+      `http://localhost:3000/api/v1/cooking_parties/${
         this.props.details.cooking_party_id
       }/retrieve-attendances`
     )

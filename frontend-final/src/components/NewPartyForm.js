@@ -45,7 +45,7 @@ class NewPartyForm extends Component {
   setPartySponsorship = info => this.setState({ sponsored: info });
 
   submitForm = e => {
-    fetch("https://neighborfood-backend.herokuapp.com/api/v1/cooking_parties", {
+    fetch("http://localhost:3000/api/v1/cooking_parties", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

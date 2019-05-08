@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Acme|Merienda");
 
+@font-face {
+  font-family: "caviar_dreamsregular";
+  src: url("../src/web-fonts/caviardreams_regular_macroman/CaviarDreams-webfont.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -170,6 +177,7 @@ code {
 }
 
 #party-bar-item {
+  font-family: "Acme";
   margin: 5px 15px 5px 15px;
   padding: 2px 5px 2px 5px;
   border: 2px solid rgb(54, 241, 205);
@@ -178,6 +186,7 @@ code {
 }
 
 #party-bar-host {
+  font-family: "Acme";
   margin: 5px auto 5px auto;
   padding: 2px 5px 2px 5px;
   border: 2px solid rgb(54, 241, 205);
@@ -248,9 +257,9 @@ code {
   color: white;
   margin: auto;
   position: absolute;
-  bottom: 3%;
   left: 50%;
-  margin-left: -155px;
+  bottom: -40px;
+  margin-left: -140px;
 }
 
 #pie-credit-link {
@@ -268,7 +277,7 @@ code {
   position: absolute;
   left: 50%;
   margin-left: -150px;
-  top: 80%;
+  top: 90%;
 }
 
 #form-field-title {
@@ -396,4 +405,39 @@ code {
   margin: auto;
   color: rgb(54, 241, 205);
   font-size: 20px;
+}
+
+#login-tagline {
+  font-family: "caviar_dreamsregular";
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  font-size: 22px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  margin-left: -597px;
+}
+
+#fb-explanation {
+  font-family: "caviar_dreamsregular";
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  left: 100%;
+  top: -5%;
+}
+
+#fb-explanation-popup {
+  font-family: "caviar_dreamsregular";
+  font-weight: bold;
+
+  background-color: rgb(35, 153, 209);
+  color: white;
+  padding: 20px;
+}
+
+#fb-only {
+  margin: auto;
+  text-align: center;
 }
