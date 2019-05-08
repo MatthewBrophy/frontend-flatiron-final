@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import { Segment, Card, Item } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 import MiniPartyCard from "../components/MiniPartyCard";
 
 class UpcomingAttendances extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Card.Group id="upcoming-attendance-list">

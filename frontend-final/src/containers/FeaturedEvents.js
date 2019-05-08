@@ -49,11 +49,3 @@ class FeaturedEvents extends Component {
 }
 
 export default FeaturedEvents;
-{
-  /* <p> Featured Events! </p>
-{this.props.parties.allParties
-  .filter(party => party.sponsored === true)
-  .map(party => (
-    <FeaturedPartyCard details={party} key={party.id} />
-  ))} */
-}

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Button, Card, Image, Popup, Icon, Segment } from "semantic-ui-react";
+import { Card, Image, Popup, Icon } from "semantic-ui-react";
 import AttendeePopup from "../components/AttendeePopup";
 
 class MiniPartyCard extends Component {
@@ -95,7 +95,7 @@ class MiniPartyCard extends Component {
 
   retrievePartyDetails = () => {
     fetch(
-      `http://localhost:3000/api/v1/cooking_parties/${
+      `https://neighborfood-backend.herokuapp.com/api/v1/cooking_parties/${
         this.props.details.cooking_party_id
       }/retrieve-party-details`
     )
@@ -112,7 +112,7 @@ class MiniPartyCard extends Component {
 
   retrievePartyAttendees = () => {
     fetch(
-      `http://localhost:3000/api/v1/cooking_parties/${
+      `https://neighborfood-backend.herokuapp.com/api/v1/cooking_parties/${
         this.props.details.cooking_party_id
       }/retrieve-attendances`
     )

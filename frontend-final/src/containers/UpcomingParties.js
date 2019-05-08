@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 import UpcomingAttendances from "./UpcomingAttendances";
 import UpcomingHostings from "./UpcomingHostings";
-import { Segment } from "semantic-ui-react";
 
 class UpcomingParties extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="row center aligned" id="upcoming-parties-pane">

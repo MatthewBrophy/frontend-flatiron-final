@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MiniPartyCard from "../components/MiniPartyCard";
-import { Segment, Card } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 
 class UpcomingHostings extends Component {
   render() {

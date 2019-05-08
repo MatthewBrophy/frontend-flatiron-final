@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Header } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import titleImage from "../images/TitleImage3.png";
 
 import MenuButton from "../components/MenuButton";

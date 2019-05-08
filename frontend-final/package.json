@@ -2,6 +2,10 @@
   "name": "frontend-final",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.9.0",
+    "node": "11.13.0"
+  },
   "dependencies": {
     "js-base64": "^2.5.1",
     "pure-react-carousel": "^1.19.4",

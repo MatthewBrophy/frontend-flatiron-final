@@ -5,20 +5,9 @@ import UpcomingParties from "./UpcomingParties";
 import FeaturedEvents from "./FeaturedEvents";
 import PartyCollection from "./PartyCollection";
 
-import {
-  Container,
-  Button,
-  Form,
-  Grid,
-  Header,
-  Message,
-  Segment
-} from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <Container>

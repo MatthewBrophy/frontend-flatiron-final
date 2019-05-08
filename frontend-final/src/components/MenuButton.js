@@ -1,13 +1,8 @@
 import React, { Component } from "react";
-import { Dropdown, Container, Icon } from "semantic-ui-react";
-import { Redirect, Link } from "react-router-dom";
-import UsersParties from "../containers/UsersParties";
+import { Dropdown } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 class MenuButton extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   FBLogout = () => {
     window.FB.logout();
     this.props.logout();
