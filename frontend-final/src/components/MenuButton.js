@@ -24,6 +24,8 @@ class MenuButton extends Component {
               text="All Your Parties"
               icon="newspaper"
               id="dropdown-item"
+              as={Link}
+              to="/all-your-parties"
             />
             <Dropdown.Item
               text="Home"

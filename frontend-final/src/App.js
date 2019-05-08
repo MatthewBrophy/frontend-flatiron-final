@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./containers/Login";
 import Main from "./containers/Main";
 import UsersParties from "./containers/UsersParties";
+import AllYourParties from "./containers/AllYourParties";
 
 class App extends Component {
   constructor() {
@@ -173,6 +174,68 @@ class App extends Component {
       );
   };
 
+  deleteHosting = hosting => {
+    fetch(
+      `http://localhost:3000/api/v1/cooking_parties/${
+        hosting.details.cooking_party_id
+      }`,
+      {
+        method: "DELETE"
+      }
+    )
+      .then(res => res.json())
+      .then(response => this.updateHostingState(response));
+  };
+
+  updateHostingState = response => {
+    let newHostings = this.state.currentUser.userParties.hosting.filter(
+      hosting => hosting.id !== response.id
+    );
+    this.setState(
+      {
+        currentUser: {
+          ...this.state.currentUser,
+
+          userParties: {
+            ...this.state.currentUser.userParties,
+            hosting: newHostings
+          }
+        }
+      },
+      async () => this.seedAllParties()
+    );
+  };
+
+  deleteAttendance = attendance => {
+    console.log("deleting Attendance", attendance);
+    fetch(`http://localhost:3000/api/v1/attendances/${attendance.details.id}`, {
+      method: "DELETE"
+    })
+      .then(res => res.json())
+      .then(response => this.updateAttendanceState(response));
+  };
+
+  updateAttendanceState = response => {
+    let newAttendances = this.state.currentUser.userParties.attending.filter(
+      attendance => attendance.id !== response.id
+    );
+    this.setState(
+      {
+        currentUser: {
+          ...this.state.currentUser,
+
+          userParties: {
+            ...this.state.currentUser.userParties,
+            attending: newAttendances
+          }
+        }
+      },
+      async () => this.seedAllParties()
+    );
+  };
+
+  // collection.filter(thing => thing.id !== id)
+
   render() {
     return (
       <div className="App container">
@@ -207,6 +270,16 @@ class App extends Component {
                   <UsersParties
                     state={this.state}
                     updateHostings={this.updateHostings}
+                  />
+                )}
+              />
+              <Route
+                path="/all-your-parties"
+                component={() => (
+                  <AllYourParties
+                    deleteHosting={this.deleteHosting}
+                    deleteAttendance={this.deleteAttendance}
+                    currentUser={this.state.currentUser}
                   />
                 )}
               />

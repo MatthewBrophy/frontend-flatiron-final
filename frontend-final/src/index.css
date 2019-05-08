@@ -69,12 +69,31 @@ code {
   color: rgb(54, 241, 205);
 }
 
+#profile-display-all-parties {
+  border: solid 2px rgb(54, 241, 205);
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-flex;
+  margin: 20px 0px 20px 0px;
+  justify-content: center;
+  width: 400px;
+  background-color: rgb(76, 96, 133);
+  color: rgb(54, 241, 205);
+  text-align: center;
+}
+
 #profile-pic {
-  border: solid 2px rgb(11, 94, 133);
+  border: solid 2px rgb(54, 241, 205);
   border-radius: 50px;
   width: 75px;
   margin-top: 10px;
   margin-left: 50px;
+}
+
+#profile-pic2 {
+  border: solid 2px rgb(54, 241, 205);
+  border-radius: 50px;
+  width: 75px;
 }
 
 #profile-details1 {
@@ -435,6 +454,7 @@ code {
   background-color: rgb(35, 153, 209);
   color: white;
   padding: 20px;
+  border-radius: 5px;
 }
 
 #fb-only {

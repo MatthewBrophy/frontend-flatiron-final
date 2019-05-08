@@ -16,7 +16,10 @@ class Main extends Component {
         <div className="ui two column grid">
           <div className="row">
             <div className="column center aligned">
-              <ProfileDetails user={this.props.currentUser} />
+              <ProfileDetails
+                id="profile-display"
+                user={this.props.currentUser}
+              />
 
               <UpcomingParties user={this.props.currentUser} />
             </div>
