@@ -5,6 +5,7 @@ import Login from "./containers/Login";
 import Main from "./containers/Main";
 import UsersParties from "./containers/UsersParties";
 import AllYourParties from "./containers/AllYourParties";
+import About from "./components/About";
 
 class App extends Component {
   constructor() {
@@ -283,6 +284,7 @@ class App extends Component {
                   />
                 )}
               />
+              <Route path="/about" component={() => <About />} />
             </Switch>
           </div>
         </Router>

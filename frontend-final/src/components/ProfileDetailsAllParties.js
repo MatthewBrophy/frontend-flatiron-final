@@ -4,7 +4,7 @@ import { Container } from "semantic-ui-react";
 class ProfileDetailsAllParties extends Component {
   render() {
     return (
-      <Container className="center aligned">
+      <Container className="center aligned" id="mobile-all-party-profile">
         <div className="row center aligned" id="profile-display-all-parties">
           <div className="item">
             <img

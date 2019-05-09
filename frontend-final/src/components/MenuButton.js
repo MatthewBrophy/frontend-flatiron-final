@@ -35,6 +35,13 @@ class MenuButton extends Component {
               id="dropdown-item"
             />
             <Dropdown.Item
+              text="About"
+              as={Link}
+              to="/about"
+              icon="question circle"
+              id="dropdown-item"
+            />
+            <Dropdown.Item
               id="dropdown-item"
               text="Log Out"
               as={Link}

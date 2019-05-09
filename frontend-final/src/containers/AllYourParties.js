@@ -12,7 +12,9 @@ class AllYourParties extends Component {
         {console.log("props", this.props.currentUser.userParties)}
         <HeaderBar />
         <ProfileDetailsAllParties user={this.props.currentUser} />
-
+        <Container className="center aligned">
+          <p id="all-parties-heading">Parties You're Hosting</p>
+        </Container>
         <Segment.Group horizontal id="party-pane">
           <Card.Group id="party-display-group">
             {this.props.currentUser.userParties.hosting.map(details => (
@@ -24,7 +26,9 @@ class AllYourParties extends Component {
             ))}
           </Card.Group>
         </Segment.Group>
-
+        <Container className="center aligned">
+          <p id="all-parties-heading">Parties You're Attending</p>
+        </Container>
         <Segment.Group horizontal id="party-pane">
           <Card.Group id="party-display-group">
             {this.props.currentUser.userParties.attending.map(details => (

@@ -331,7 +331,7 @@ code {
     rgb(202, 207, 133) 35%,
     rgb(54, 241, 205) 100%
   );
-
+  border: 2px solid rgb(54, 241, 205);
   border-radius: 10px;
 }
 
@@ -460,4 +460,314 @@ code {
 #fb-only {
   margin: auto;
   text-align: center;
+}
+
+#all-parties-heading {
+  margin-top: 40px;
+  color: rgb(54, 241, 205);
+  font-size: 30px;
+}
+
+#about-title {
+  color: rgb(54, 241, 205);
+  text-decoration: underline;
+  font-size: 36px;
+  margin-top: 40px;
+}
+
+#about-header {
+  color: rgb(54, 241, 205);
+  text-decoration: underline;
+  font-size: 24px;
+  margin-top: 40px;
+}
+
+#about-content {
+  margin: 20px 0px 0px 0px;
+  color: white;
+  font-size: 16px;
+}
+
+#creator-pic {
+  width: 14%;
+  border-radius: 10px;
+  float: left;
+  margin-right: 20px;
+}
+
+#creator-info {
+  margin: 20px auto auto 20px;
+  width: 400px;
+  font-size: 16px;
+  color: white;
+}
+@media only screen and (max-width: 900px) {
+  #about-title {
+    color: rgb(54, 241, 205);
+    text-decoration: underline;
+    font-size: 36px;
+    margin-top: 80px;
+  }
+
+  #creator-links {
+    margin-bottom: 20px;
+  }
+
+  #creator-info {
+    margin: 20px auto auto 20px;
+    width: 400px;
+    font-size: 16px;
+    color: white;
+    padding: 0px 20px 0px 0px;
+  }
+
+  #title-bar-image {
+    width: 99vw;
+    margin: auto;
+    position: absolute;
+    left: 0%;
+    top: 5%;
+  }
+
+  #top-bar {
+    border-radius: 10px;
+    height: 0%;
+    margin: 0px auto auto auto;
+  }
+
+  #menu-button {
+    border: solid 2px rgb(54, 241, 205);
+    border-radius: 10px;
+    float: none;
+    padding: 3px;
+    margin-top: 10px;
+    margin-left: -330px;
+    justify-content: center;
+    background: rgb(76, 96, 133);
+    color: rgb(54, 241, 205);
+  }
+
+  #profile-display {
+    text-align: center;
+    border: solid 2px rgb(54, 241, 205);
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-flex;
+    margin: 80px auto auto 7px;
+    width: 90vw;
+    background-color: rgb(76, 96, 133);
+    color: rgb(54, 241, 205);
+  }
+
+  #profile-pic {
+    border: solid 2px rgb(54, 241, 205);
+    border-radius: 50px;
+    width: 75px;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 30px;
+  }
+
+  #profile-details1 {
+    margin: 10px auto auto auto;
+    font-size: 20px;
+  }
+
+  #profile-details2 {
+    text-align: center;
+    margin: auto;
+    font-size: 16px;
+  }
+
+  #upcoming-parties-pane {
+    text-align: center;
+    margin: 10px 0px 0px 7px;
+    height: auto;
+    width: 90vw;
+    border: solid 2px rgb(54, 241, 205);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(76, 96, 133);
+    color: rgb(54, 241, 205);
+  }
+
+  #upcoming-title-block {
+    color: rgb(54, 241, 205);
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  #upcoming-hosting-list {
+    justify-content: center;
+    height: 320px;
+    overflow: auto;
+  }
+
+  #upcoming-attendance-list {
+    justify-content: center;
+    height: 320px;
+    overflow: auto;
+  }
+
+  #sponsored-display {
+    margin: 20px auto 20px auto;
+    width: 90vw;
+    text-align: center;
+  }
+
+  #party-section {
+    width: 90vw;
+    margin: 10px 0px 0px 6px;
+    justify-content: center;
+  }
+
+  #party-display-group {
+    width: 90vw;
+  }
+
+  #party-pane {
+    margin: auto auto 20px 6px;
+    width: 99%;
+    border: 2px solid rgb(11, 94, 133);
+    border-radius: 10px;
+  }
+
+  #featured-party-card {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      147deg,
+      rgb(54, 241, 205) 0%,
+      rgb(202, 207, 133) 35%,
+      rgb(54, 241, 205) 100%
+    );
+    border: 2px solid rgb(54, 241, 205);
+    border-radius: 10px;
+    overflow-y: scroll;
+  }
+
+  #featured-party-card-image {
+    max-height: 50%;
+    max-width: 50%;
+    border: 2px solid rgb(76, 96, 133);
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  #featured-party-card-main-display-area {
+    padding: 5px 0px 0px 0px;
+  }
+
+  #featured-title {
+    font-size: 30px;
+    margin-bottom: 0;
+  }
+
+  #featured-card-title {
+    font-size: 16px;
+  }
+
+  #featured-party-description {
+    margin: 10px 0px 0px 0px;
+    padding: 2%;
+    font-size: 16px;
+  }
+
+  #party-card-attendees {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  #attend-button {
+    height: 40px;
+    text-align: center;
+    padding: auto;
+    margin: auto;
+  }
+
+  #nav-bar-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin: auto 0px auto 0px;
+    color: rgb(54, 241, 205);
+  }
+
+  #party-nav-bar {
+    width: 90vw;
+    margin: 0px 0px 0px 1px;
+  }
+
+  #new-party-form {
+    margin-top: 100px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    background-color: rgb(35, 153, 209);
+    padding: 10px;
+    color: rgb(54, 241, 205);
+  }
+
+  #form-sponsored {
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+  }
+
+  #login-image {
+    margin-top: 50px;
+    width: 150vw;
+    position: absolute;
+    left: -25%;
+  }
+
+  #login-tagline {
+    font-family: "caviar_dreamsregular";
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    margin-left: 0px;
+  }
+
+  #facebook-login {
+    text-align: center;
+    height: 100px;
+    width: 300px;
+    position: absolute;
+    left: 50%;
+    margin-left: -150px;
+    top: 65%;
+  }
+
+  #fb-explanation {
+    font-family: "caviar_dreamsregular";
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    left: 20%;
+    top: 85%;
+  }
+
+  #mobile-all-party-profile {
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  #profile-display-all-parties {
+    border: solid 2px rgb(54, 241, 205);
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-flex;
+    margin: 80px auto auto -8px;
+    justify-content: center;
+    width: 90vw;
+    background-color: rgb(76, 96, 133);
+    color: rgb(54, 241, 205);
+    text-align: center;
+  }
 }

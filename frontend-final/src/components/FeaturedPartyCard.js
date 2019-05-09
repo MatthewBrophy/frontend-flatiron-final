@@ -100,7 +100,7 @@ class FeaturedPardCard extends Component {
   render() {
     return (
       <Card id="featured-party-card">
-        <Card.Content>
+        <Card.Content id="featured-party-card-main-display-area">
           <Image
             id="featured-party-card-image"
             src={this.props.details.image}
