@@ -19,7 +19,7 @@ class FeaturedPardCard extends Component {
   setHost = () => {
     let id = this.props.details.id;
     fetch(
-      `http://localhost:3000/api/v1/cooking_parties/${id}/retrieve-party-host`
+      `https://neighborfood-backend.herokuapp.com/api/v1/cooking_parties/${id}/retrieve-party-host`
     )
       .then(res => res.json())
       .then(response => this.setState({ host: response.name }));

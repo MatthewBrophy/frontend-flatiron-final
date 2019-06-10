@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   seedAllParties = () => {
-    fetch("http://localhost:3000/api/v1/cooking_parties")
+    fetch("https://neighborfood-backend.herokuapp.com/api/v1/cooking_parties")
       .then(response => response.json())
       .then(allParties => {
         this.setState({
@@ -45,7 +45,9 @@ class App extends Component {
   };
 
   fetchUserHostings = id => {
-    fetch(`http://localhost:3000/api/v1/users/${id}/hostings`)
+    fetch(
+      `https://neighborfood-backend.herokuapp.com/api/v1/users/${id}/hostings`
+    )
       .then(response => response.json())
       .then(hostings =>
         this.setState(
@@ -65,7 +67,9 @@ class App extends Component {
   };
 
   fetchUserAttendances = id => {
-    fetch(`http://localhost:3000/api/v1/users/${id}/guest-attendances`)
+    fetch(
+      `https://neighborfood-backend.herokuapp.com/api/v1/users/${id}/guest-attendances`
+    )
       .then(response => response.json())
       .then(attendings =>
         this.setState(
@@ -100,7 +104,11 @@ class App extends Component {
   };
 
   getDBUserId = user => {
-    fetch(`http://localhost:3000/api/v1/users/skittles/${user.auth_key}`)
+    fetch(
+      `https://neighborfood-backend.herokuapp.com/api/v1/users/skittles/${
+        user.auth_key
+      }`
+    )
       .then(response => response.json())
       .then(info =>
         this.setState({ DBID: info[0].id }, async () =>
@@ -156,7 +164,7 @@ class App extends Component {
   newAttendance = item => {
     let newLocation = item.details.attendances[0].location;
     let newDate = item.details.attendances[0].date;
-    fetch("http://localhost:3000/api/v1/attendances", {
+    fetch("https://neighborfood-backend.herokuapp.com/api/v1/attendances", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -177,7 +185,7 @@ class App extends Component {
 
   deleteHosting = hosting => {
     fetch(
-      `http://localhost:3000/api/v1/cooking_parties/${
+      `https://neighborfood-backend.herokuapp.com/api/v1/cooking_parties/${
         hosting.details.cooking_party_id
       }`,
       {
@@ -209,9 +217,14 @@ class App extends Component {
 
   deleteAttendance = attendance => {
     console.log("deleting Attendance", attendance);
-    fetch(`http://localhost:3000/api/v1/attendances/${attendance.details.id}`, {
-      method: "DELETE"
-    })
+    fetch(
+      `https://neighborfood-backend.herokuapp.com/api/v1/attendances/${
+        attendance.details.id
+      }`,
+      {
+        method: "DELETE"
+      }
+    )
       .then(res => res.json())
       .then(response => this.updateAttendanceState(response));
   };

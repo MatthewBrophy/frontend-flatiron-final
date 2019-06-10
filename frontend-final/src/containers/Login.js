@@ -17,7 +17,7 @@ export default class Login extends Component {
   }
   responseFacebook = response => {
     if (response.status === undefined) {
-      fetch("http://localhost:3000/api/v1/users", {
+      fetch("https://neighborfood-backend.herokuapp.com/api/v1/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
